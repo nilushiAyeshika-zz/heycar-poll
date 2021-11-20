@@ -3,14 +3,16 @@ import React from "react";
 import Grid from '../../../components/Layout/Grid/Grid.component';
 import Text from "../../Core/Text/Text.component";
 
-import { DetailCardProps } from './QuestionDetailCard.types';
+import { IDetailCard } from './QuestionDetailCard.types';
 
 import QuestionDetailCardWrapper from './QuestionDetailCard.theme';
 
-const QuestionDetailCard: React.FC<DetailCardProps> = (props) => {
+const QuestionDetailCard: React.FC<IDetailCard> = (props) => {
   const {
     id,
     className,
+    choice,
+    votes,
 	} = props;
 
   return (
@@ -18,18 +20,18 @@ const QuestionDetailCard: React.FC<DetailCardProps> = (props) => {
       id={id}
       className={className}
     >
-      <div className="details-choice">
-        <Text size="m">Choice</Text>
-      </div>
-      <div className="details-vote-amount">
-        <Text size="m">Votes</Text>
-      </div>
-      <div className="details-percentage">
+      <Grid className="details-choice">
+        <Text size="m">{choice}</Text>
+      </Grid>
+      <Grid className="details-vote-amount">
+        <Text size="m">{votes}</Text>
+      </Grid>
+      <Grid className="details-percentage">
         <Text size="m">Percentage%</Text>
-      </div>
-      <div className="details-vote">
+      </Grid>
+      <Grid className="details-vote">
         Vote
-      </div>
+      </Grid>
     </QuestionDetailCardWrapper>
   )
 }

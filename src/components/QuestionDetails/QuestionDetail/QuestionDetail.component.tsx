@@ -5,13 +5,15 @@ import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import Grid from '../../../components/Layout/Grid/Grid.component';
 import Text from "../../Core/Text/Text.component";
 import IconTitle from "../../Shared/IconTitle/IconTitle.component";
-import QuestionDetailsInfiniteList from "../QuestionDetailsInfiniteList/QuestionDetailsInfiniteList.component";
+import QuestionDetailsList from "../QuestionDetailsList/QuestionDetailsList.component";
 import Button from "../../Core/Button/Button.component";
 import { generateRandomColors, isLightColor } from "../../../utils/theme.utils";
 
+import { IDetails } from "./QuestionDetail.types";
 import QuestionDetailsWrapper from './QuestionDetail.theme';
 
-const QuestionDetail: React.FC = () => {
+const QuestionDetail: React.FC<IDetails> = (props) => {
+  const { data, loading } = props;
   const iconBgColor = generateRandomColors('qestion one');
   
   return (
@@ -26,13 +28,13 @@ const QuestionDetail: React.FC = () => {
                 isLightIcon={isLightColor(iconBgColor)}
               >
                 <Text size="l" weight="bold">Question:</Text>
-                <Text size="l">&nbsp; Question one</Text>
+                <Text size="l">&nbsp; {data?.question}</Text>
               </IconTitle>
             </Grid>
-          <QuestionDetailsInfiniteList
+          <QuestionDetailsList
             id="Details-Infinite-List"
-            bottomHitThreshold={200}
-            data={[]}
+            data={data?.choices}
+            dataLoading={loading}
           />
         </Grid>
         <Button
@@ -41,7 +43,7 @@ const QuestionDetail: React.FC = () => {
           margin="4rem 0"
           className="vote-button"
         >
-          <Text size="m" color="typo-white">Save</Text>
+          <Text size="m" color="typo-white">Save Votes</Text>
         </Button>
       </QuestionDetailsWrapper>
     </Grid>

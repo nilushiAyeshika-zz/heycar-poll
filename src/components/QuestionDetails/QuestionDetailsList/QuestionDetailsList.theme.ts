@@ -6,7 +6,6 @@ const QuestionDetailsWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 50rem);
   overflow-y: auto;
 
   .ques-card {

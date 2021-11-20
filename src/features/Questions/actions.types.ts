@@ -13,6 +13,7 @@ export interface IGetQuestionList {
 export interface IQuestionData {
   data: IQuestion[]
   link: string
+  page: number
 }
 
 export interface IGetQuestionListSuccess {

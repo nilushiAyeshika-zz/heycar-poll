@@ -30,11 +30,12 @@ export const reducer = function reducer(
           nextPageLink: "",
         }
       case GET_QUESTION_LIST_SUCCESS:
+        const isInitialPage = action.payload.page === 1;
+        
         return {
           ...state,
           loading: false,
-          // data: action.payload.data,
-          data: [...state.data, ...action.payload.data],
+          data: isInitialPage ? action.payload.data : [...state.data, ...action.payload.data],
           nextPageLink: action.payload.link,
         }
       case GET_QUESTION_LIST_ERROR:

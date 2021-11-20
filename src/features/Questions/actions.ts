@@ -7,7 +7,6 @@ import {
   QuestionsDispatchTypes,
 } from './actions.types';
 
-import { IQuestion } from "../../components/Questions/Card/Card.types";
 import QuestionAPI from '../../api/QuestionApi';
 
 export const getQuestionList = (pageCount: number) => async (dispatch: Dispatch<QuestionsDispatchTypes>) => {
@@ -18,7 +17,11 @@ export const getQuestionList = (pageCount: number) => async (dispatch: Dispatch<
 
     dispatch({
       type: GET_QUESTION_LIST_SUCCESS,
-      payload: { data: res.data, link: res.headers?.link || '' },
+      payload: {
+        data: res.data,
+        link: res.headers?.link || '',
+        page: pageCount,
+      },
     })
   } catch (e) {
     dispatch({

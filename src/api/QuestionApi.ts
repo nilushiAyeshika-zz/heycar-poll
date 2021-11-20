@@ -17,6 +17,16 @@ class QuestionAPI {
 
     return axios.request(config as IConfig);
   }
+
+  getQuestionDetails = async (id: number) => {
+    const config = {
+      headers: ApiHelper.createHeader(),
+      url: `https://polls.apiblueprint.org/questions/${id}`,
+      method: 'get',
+    };
+
+    return axios.request(config as IConfig);
+  }
 }
 
 export default new QuestionAPI();

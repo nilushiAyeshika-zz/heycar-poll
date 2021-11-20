@@ -15,6 +15,7 @@ import QuestionScreenWrapper from './QuestionScreen.theme';
 
 const QuestionScreen: React.FC = (props: any) => {
 	const { questionList,  isListLoading, nextPageLink } = props;
+	
 	const dispatch = useDispatch();
 
 	const [pageCount, setPageCount] = useState(1);
@@ -30,6 +31,7 @@ const QuestionScreen: React.FC = (props: any) => {
 	}, [questionList])
 
 	useEffect(() => {
+		setPageCount(1);
     dispatch(getQuestionList(pageCount));
   }, []);
 

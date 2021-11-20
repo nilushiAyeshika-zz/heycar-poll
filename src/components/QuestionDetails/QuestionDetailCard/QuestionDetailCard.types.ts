@@ -1,12 +1,7 @@
-import React from "react";
-
-export interface DetailCardProps {
+export interface IDetailCard {
 	id: string;
 	className?: string;
-	// title: string;
-	// publishedAt: string;
-	// choices: number;
-  // callbackValue?: any;
-	// onClick?: (callbackValue: any, event: any) => any
-  // icon?: React.ReactNode;
+	choice: string
+	url: string
+	votes: number
 }
