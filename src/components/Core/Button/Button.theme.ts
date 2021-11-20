@@ -31,6 +31,14 @@ const ButtonStyles = styled.button<ButtonProps>`
   &:disabled {
     cursor: default;
   }
+
+  .icon-wrapper {
+    align-items: center;
+    justify-content: center;
+    svg {
+      margin-right: 1rem;
+    }
+  }
 `;
 
 export default ButtonStyles;

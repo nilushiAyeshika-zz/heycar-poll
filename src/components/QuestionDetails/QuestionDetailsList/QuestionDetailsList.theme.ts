@@ -7,6 +7,7 @@ const QuestionDetailsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  max-height: 50rem;
 
   .ques-card {
     &:nth-child(2n) {

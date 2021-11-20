@@ -1,5 +1,7 @@
 import React, { forwardRef, useCallback } from "react";
 
+import Grid from "../../Layout/Grid/Grid.component";
+
 import { ButtonProps } from './Button.types';
 
 import ButtonStyles from './Button.theme';
@@ -51,9 +53,22 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       hoverColor={hoverColor}
       margin={margin}
     >
-      {children}
+      {
+        startIcon ? (
+          <Grid className="icon-wrapper">
+            {startIcon}
+            {children}
+          </Grid>
+        )
+        :
+        children
+      }
     </ButtonStyles>
   );
 });
+
+Button.defaultProps = {
+  startIcon: undefined,
+};
 
 export default Button;

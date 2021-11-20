@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import moment from 'moment';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 import Card from "../Card/Card.component";
 import Grid from "../../Layout/Grid/Grid.component";
