@@ -13,7 +13,6 @@ export const getQuestionList = (pageCount: number) => async (dispatch: Dispatch<
   try {
     dispatch({ type: GET_QUESTION_LIST });
     const res = await QuestionAPI.getQuestions(pageCount);
-    console.log(res);
 
     dispatch({
       type: GET_QUESTION_LIST_SUCCESS,

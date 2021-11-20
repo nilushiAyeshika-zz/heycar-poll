@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import moment from 'moment';
 
 import Grid from '../../../components/Layout/Grid/Grid.component';
 import QuestionDetailCard from "../QuestionDetailCard/QuestionDetailCard.component";
@@ -17,9 +16,22 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
     placeholderCount,
     data,
     dataLoading,
+    onHandleVoteClick,
+    checkedChoiceId,
   } = props;
 
+  const [checkedId, setCheckedId] = useState(checkedChoiceId);
+
   const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount;
+
+  const handleVoteClick = useCallback((event, callbackValue) => {
+    setCheckedId(callbackValue.id);
+    onHandleVoteClick(callbackValue);
+  }, []);
+
+  useEffect(() => {
+    setCheckedId(checkedChoiceId);
+  }, [checkedChoiceId]);
   
   return (
     <QuestionDetailsInfiniteWrapper
@@ -30,10 +42,13 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
         <QuestionDetailCard
           key={item.choice + index}
           id={item.choice + index}
+          questionId={id}
           className="ques-card"
           choice={item.choice}
           url={item.url}
           votes={item.votes}
+          onVoteClick={handleVoteClick}
+          checkedId={checkedId}
         />
       ))}
 

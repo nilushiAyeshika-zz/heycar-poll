@@ -34,8 +34,6 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
     navigate(`question/${questionId}`)
 	}, []);
 
-  console.log(data)
-
   return (
     <QuestionListWrapper
       className={className}

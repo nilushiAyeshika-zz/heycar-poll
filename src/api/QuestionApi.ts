@@ -27,6 +27,22 @@ class QuestionAPI {
 
     return axios.request(config as IConfig);
   }
+
+  saveQuestionVotes =
+    async (question_id: number, choice_id: number, url: string, choice: string) => {
+      const config = {
+        headers: ApiHelper.createHeader(),
+        url: `https://polls.apiblueprint.org/questions/${question_id}/choices/${choice_id}`,
+        method: 'post',
+        data: { 
+          url,
+          votes: 1,
+          choice
+        },
+      };
+
+    return axios.request(config as IConfig);
+  }
 }
 
 export default new QuestionAPI();

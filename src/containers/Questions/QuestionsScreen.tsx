@@ -22,8 +22,6 @@ const QuestionScreen: React.FC = (props: any) => {
 	const moreDataAvailable = nextPageLink?.includes("next");
 
 	const handleNextPageRequest = useCallback(() => {
-		console.log(props)
-
 		if (!isListLoading && moreDataAvailable) {
 			setPageCount(pageCount + 1);
 			dispatch(getQuestionList(pageCount + 1));
@@ -34,8 +32,6 @@ const QuestionScreen: React.FC = (props: any) => {
 		setPageCount(1);
     dispatch(getQuestionList(pageCount));
   }, []);
-
-	console.log(questionList);
 
   return (
     <QuestionScreenWrapper>

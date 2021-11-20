@@ -2,6 +2,7 @@ import React from "react";
 
 import Grid from '../../../components/Layout/Grid/Grid.component';
 import Text from "../../Core/Text/Text.component";
+import RadioButton from "../../Core/RadioButton/RadioButton.component";
 
 import { IDetailCard } from './QuestionDetailCard.types';
 
@@ -13,7 +14,15 @@ const QuestionDetailCard: React.FC<IDetailCard> = (props) => {
     className,
     choice,
     votes,
+    onVoteClick,
+    questionId,
+    url,
+    disabled,
+    checkedId,
 	} = props;
+  
+  const choiceId = url.split("/").pop();
+  const radioButtonId = `${questionId}-${choiceId}`;
 
   return (
     <QuestionDetailCardWrapper
@@ -30,7 +39,13 @@ const QuestionDetailCard: React.FC<IDetailCard> = (props) => {
         <Text size="m">Percentage%</Text>
       </Grid>
       <Grid className="details-vote">
-        Vote
+        <RadioButton
+          id={radioButtonId}
+          callbackValue={{ questionId, url, choiceId, id: radioButtonId, choiceName: choice }}
+          onClick={onVoteClick}
+          disabled={disabled}
+          checked={checkedId === radioButtonId}
+        />
       </Grid>
     </QuestionDetailCardWrapper>
   )

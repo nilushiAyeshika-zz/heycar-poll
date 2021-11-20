@@ -1,10 +1,11 @@
 import { IDetailListChoices } from "../QuestionDetail/QuestionDetail.types";
 
 export interface IDetailListProps {
-	id: string;
+	id: any;
 	className?: string;
+	checkedChoiceId: string;
   placeholderCount?: number
-  // data: any
   data: IDetailListChoices[]
   dataLoading: boolean
+  onHandleVoteClick: (callback: any) => any
 }

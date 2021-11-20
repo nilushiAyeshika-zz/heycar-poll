@@ -4,7 +4,7 @@ import { faList, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 import Grid from '../../components/Layout/Grid/Grid.component';
 import QuestionDetail from "../../components/QuestionDetails/QuestionDetail/QuestionDetail.component";
@@ -23,18 +23,15 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const { questionId } = params;
+	const qid = parseInt(questionId as string);
 
 	const handleBackNavigation = useCallback(() => {
 		navigate('/');
 	}, [])
 
 	useEffect(() => {
-		const id = parseInt(questionId as string);
-		console.log(id)
-    dispatch(getQuestionDetails(id));
+    dispatch(getQuestionDetails(qid));
   }, []);
-
-	console.log(questionDetailsList)
 
   return (
     <QuestionDetailsScreenWrapper>
@@ -59,6 +56,7 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
 					</Button>
 				</Grid>
         <QuestionDetail
+					id={qid || 0}
 					data={questionDetailsList}
 					loading={isListLoading}
 				/>

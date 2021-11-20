@@ -1,4 +1,5 @@
 export interface IDetails {
+  id: number
   data: IDetailsChoiceData
   loading: boolean
 }
