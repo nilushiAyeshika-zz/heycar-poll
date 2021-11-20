@@ -2,12 +2,23 @@ import styled from "styled-components";
 
 const QuestionListWrapper = styled.div`
 	display: flex;
-  height: calc(100vh - 16.5rem);
+
   overflow-y: auto;
   width: 100%;
   justify-content: center;
   padding: 2rem 0;
   flex-wrap: wrap;
+
+  .infinite-scroll-component__outerdiv {
+    display: flex;
+    width: 100%;
+  }
+
+  .infinite-scroll-component  {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 
   .question-card {
     margin-right: 1.5rem;

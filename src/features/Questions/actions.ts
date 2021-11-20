@@ -1,25 +1,24 @@
 import { Dispatch } from 'redux';
-import axios from 'axios';
 
 import {
   GET_QUESTION_LIST,
   GET_QUESTION_LIST_SUCCESS,
   GET_QUESTION_LIST_ERROR,
   QuestionsDispatchTypes,
-} from './QuestionsActions.types';
+} from './actions.types';
+
 import { IQuestion } from "../../components/Questions/Card/Card.types";
-import ApiHelper from "../../helpers/ApiHelper";
 import QuestionAPI from '../../api/QuestionApi';
 
-export const getQuestionList = () => async (dispatch: Dispatch<QuestionsDispatchTypes>) => {
+export const getQuestionList = (pageCount: number) => async (dispatch: Dispatch<QuestionsDispatchTypes>) => {
   try {
     dispatch({ type: GET_QUESTION_LIST });
-    const res = await QuestionAPI.getQuestions();
+    const res = await QuestionAPI.getQuestions(pageCount);
     console.log(res);
 
     dispatch({
       type: GET_QUESTION_LIST_SUCCESS,
-      payload: res.data,
+      payload: { data: res.data, link: res.headers?.link || '' },
     })
   } catch (e) {
     dispatch({

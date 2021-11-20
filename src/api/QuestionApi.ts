@@ -5,13 +5,14 @@ import ApiHelper from "../helpers/ApiHelper";
 import { IConfig } from "./Question.types";
 
 class QuestionAPI {
-  getQuestions = async () => {
-  // export const getQuestionList = async (keyword, limit, offset, orderBy = 'CreatedDate') => {
+  getQuestions = async (page = 1) => {
     const config = {
       headers: ApiHelper.createHeader(),
-      url: `${process.env.REACT_APP_SERVICES}/questions`,
+      url: 'https://polls.apiblueprint.org/questions',
+      // url: 'https://private-anon-1afab8059f-pollsapi.apiary-mock.com/questions',
+      // url: `${process.env.REACT_APP_SERVICES}/questions`,
       method: 'get',
-      // params: { keyword, limit, offset, orderBy },
+      params: { page },
     };
 
     return axios.request(config as IConfig);

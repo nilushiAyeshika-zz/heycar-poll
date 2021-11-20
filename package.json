@@ -12,6 +12,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "@types/debounce": "^1.2.1",
+    "@types/history": "^4.7.9",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
@@ -21,11 +22,15 @@
     "@types/redux-thunk": "^2.1.0",
     "@types/styled-components": "^5.1.15",
     "axios": "^0.24.0",
+    "connected-react-router": "^6.9.1",
     "debounce": "^1.2.1",
+    "history": "^5.1.0",
+    "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-infinite-scroll-component": "^6.1.0",
     "react-redux": "^7.2.6",
+    "react-router": "^6.0.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "redux": "^4.1.2",
@@ -42,8 +47,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
-    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
-    "isready": "yarn run format && yarn run lint && yarn run build"
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'"
   },
   "eslintConfig": {
     "extends": [

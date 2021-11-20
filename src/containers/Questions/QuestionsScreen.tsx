@@ -1,21 +1,39 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import Grid from '../../components/Layout/Grid/Grid.component';
 import QuestionList from "../../components/Questions/QuestionList/QuestionList";
 import Text from "../../components/Core/Text/Text.component";
 import IconTitle from "../../components/Shared/IconTitle/IconTitle.component";
-import { getQuestionList } from "../../features/questions/QuestionsActions";
+import { getQuestionList } from "../../features/Questions/actions";
+import { selectors as questionState } from '../../features/Questions/reducer';
+
 import QuestionScreenWrapper from './QuestionScreen.theme';
 
-const QuestionScreen: React.FC = () => {
-	const dispatch = useDispatch()
+const QuestionScreen: React.FC = (props: any) => {
+	const { questionList,  isListLoading, nextPageLink } = props;
+	const dispatch = useDispatch();
+
+	const [pageCount, setPageCount] = useState(1);
+	const moreDataAvailable = nextPageLink?.includes("next");
+
+	const handleNextPageRequest = useCallback(() => {
+		console.log(props)
+
+		if (!isListLoading && moreDataAvailable) {
+			setPageCount(pageCount + 1);
+			dispatch(getQuestionList(pageCount + 1));
+    }
+	}, [questionList])
 
 	useEffect(() => {
-    dispatch(getQuestionList());
+    dispatch(getQuestionList(pageCount));
   }, []);
+
+	console.log(questionList);
 
   return (
     <QuestionScreenWrapper>
@@ -29,12 +47,23 @@ const QuestionScreen: React.FC = () => {
 					<Text size="xl">Questions</Text>
 				</IconTitle>
 				<QuestionList
-					data={[]}
-					bottomHitThreshold={200}
+					data={questionList}
+					bottomHitThreshold={50}
+					dataLoading={isListLoading}
+					onNextPageRequested={handleNextPageRequest}
+					hasMoreData={moreDataAvailable}
 				/>
 			</Grid>
     </QuestionScreenWrapper>
   )
 }
 
-export default QuestionScreen;
+const mapStateToProps = (state: any) => ({
+  questionList: questionState.data(state),
+  isListLoading: questionState.loading(state),
+  nextPageLink: questionState.nextPageLink(state),
+});
+
+const mapDispatchToProps = null;
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionScreen);

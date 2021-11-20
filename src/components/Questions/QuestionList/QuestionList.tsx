@@ -1,5 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import debounce from 'debounce';
+import moment from 'moment';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Card from "../Card/Card.component";
 import Grid from "../../Layout/Grid/Grid.component";
@@ -16,44 +18,47 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
     placeholderCount,
     data,
     dataLoading,
-    bottomHitThreshold,
+    hasMoreData,
     onNextPageRequested,
   } = props;
 
   const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount;
 
-  const scrollResolver = useCallback(debounce((event: any) => {
-    const { target } = event;
-    const bottomHit =
-      target.scrollHeight - target.scrollTop -
-      (bottomHitThreshold || DefaultPlaceholderItemsCount) <= target.clientHeight;
-
-    if (bottomHit) onNextPageRequested?.();
-  }, 400), []);
-
-  const scrollHandler = useCallback((event) => {
-    scrollResolver(event);
-  }, []);
-
-  const [scrollContainerRef, setScrollContainerRef] = useState<HTMLDivElement | null>(null);
-
-  const handleScrollContainerRef = useCallback((ref: HTMLDivElement) => {
-    if (ref) {
-      setScrollContainerRef(ref);
-      ref.addEventListener('scroll', scrollHandler);
-    }
-  }, []);
-
-  useEffect(() => {
-    return () => scrollContainerRef?.removeEventListener('scroll', scrollHandler);
-  }, []);
+	const handleNextPageRequest = useCallback(() => {
+    onNextPageRequested();
+	}, [onNextPageRequested]);
+  console.log(data)
 
   return (
     <QuestionListWrapper
       className={className}
-      ref={handleScrollContainerRef}
     >
       <Grid className="card-list-inner">
+        <InfiniteScroll
+          dataLength={data.length}
+          next={handleNextPageRequest}
+          hasMore={hasMoreData}
+          loader={<h4>Loading...</h4>}
+          refreshFunction={() => null}
+          pullDownToRefreshThreshold={50}
+          height={200}
+        >
+          {data.length > 0 && data.map(item => {
+            const choiceLength = item.choices.length;
+            const publishedAt = moment(item.published_at).format('YYYY/MM/DD');
+
+            return (
+              <Card
+                key={item.published_at}
+                title={item.question}
+                publishedAt={publishedAt}
+                choices={choiceLength}
+                className="question-card"
+                onClick={() => console.log('hii')}
+              />
+            );
+          })}
+          {/* <Grid className="card-list-inner">
         <Card title="Question one"
           className="question-card"
           onClick={() => console.log('hii')}
@@ -110,7 +115,30 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
           publishedAt="2021/01/8"
           choices={2}
         />
+      </Grid> */}
+        </InfiniteScroll>
       </Grid>
+
+
+
+
+      {/* <Grid className="card-list-inner">
+        {data.length > 0 && data.map(item => {
+          const choiceLength = item.choices.length;
+          const publishedAt = moment(item.published_at).format('YYYY/MM/DD');
+
+          return (
+            <Card
+              key={item.published_at}
+              title={item.question}
+              publishedAt={publishedAt}
+              choices={choiceLength}
+              className="question-card"
+              onClick={() => console.log('hii')}
+            />
+          );
+        })}
+      </Grid> */}
     </QuestionListWrapper>
   )
 }

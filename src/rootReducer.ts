@@ -1,11 +1,9 @@
-import { combineReducers } from 'redux'
-// import gameReducer from './features/overview/game/GameReducer'
-// import campaignReducer from './features/overview/campaign/CampaignReducer'
+import { combineReducers } from 'redux';
 
-const RootReducer = combineReducers({ })
-// const RootReducer = combineReducers({
-//   games: gameReducer,
-//   campaigns: campaignReducer,
-// })
+import { key as questionState, reducer as questionStateReducer } from './features/Questions';
+
+export const RootReducer = () => combineReducers({
+  [questionState]: questionStateReducer,
+});
 
 export default RootReducer

@@ -32,12 +32,6 @@
           "args": "none"
         }
       ],
-      // "@typescript-eslint/no-explicit-any": [
-      //   "error",
-      //   {
-      //     "ignoreRestArgs": true
-      //   }
-      // ],
       "max-len": [
         "warn",
         {
@@ -54,18 +48,7 @@
         }
       ],
       "react/jsx-key": "error",
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": [
-            "**/*.test.js",
-            "**/*.test.jsx",
-            "**/*.test.ts",
-            "**/*.test.tsx",
-            "src/tests/**/*"
-          ]
-        }
-      ],
+      "import/no-extraneous-dependencies": 0,
       "react/jsx-props-no-spreading": "off",
       "import/prefer-default-export": "off",
       "react/jsx-boolean-value": "off",

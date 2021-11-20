@@ -1,10 +1,15 @@
 import { createStore, applyMiddleware } from 'redux';
-import RootReducer from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import { routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 
-const Store = createStore(RootReducer, composeWithDevTools(applyMiddleware(thunk)))
+import RootReducer from './rootReducer';
 
-export type RootStore = ReturnType<typeof RootReducer>
+const routeMiddleware = routerMiddleware(window.history);
+const middlewares = applyMiddleware(routeMiddleware, thunk);
 
-export default Store
+const Store = createStore(RootReducer(), composeWithDevTools(middlewares));
+
+// export type RootStore = ReturnType<typeof RootReducer>
+
+export default Store;
