@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import Card from '../Card/Card.component'
 import Grid from '../../Layout/Grid/Grid.component'
 import CardContentLoader from '../CardContentLoader/CardContentLoader.component'
+import Text from '../../Core/Text/Text.component'
 
 import { QuestionListProps } from './QuestionList.types'
 
@@ -37,7 +38,7 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
       refreshFunction={() => null}
       pullDownToRefreshThreshold={50}
     >
-      {data.length > 0 &&
+      {data.length > 0 ? (
         data.map((item) => {
           const choiceLength = item.choices.length
           const publishedAt = moment(item.published_at).format('YYYY/MM/DD')
@@ -53,7 +54,13 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
               callbackValue={item.url}
             />
           )
-        })}
+        })
+      ) : (
+        <Grid direction="column" margin="3rem 0 0 0">
+          <Text size="l">Sorry, no data to show</Text>
+          <Text size="l">Please start with creating new question</Text>
+        </Grid>
+      )}
     </InfiniteScroll>
   )
 

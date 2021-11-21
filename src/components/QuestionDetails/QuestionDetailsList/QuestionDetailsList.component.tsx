@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import Grid from '../../../components/Layout/Grid/Grid.component'
 import QuestionDetailCard from '../QuestionDetailCard/QuestionDetailCard.component'
 import QuestionListContentLoader from '../QuestionListContentLoader/QuestionListContentLoader.component'
+import Text from '../../Core/Text/Text.component'
 
 import { IDetailListProps } from './QuestionDetailsList.types'
 
@@ -11,19 +12,20 @@ import QuestionDetailsInfiniteWrapper from './QuestionDetailsList.theme'
 const DefaultPlaceholderItemsCount = 3
 
 const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
-  const {
-    id, className, placeholderCount, data, dataLoading,
-    onHandleVoteClick, checkedChoiceId 
-} = props
+  const { id, className, placeholderCount, data, dataLoading, onHandleVoteClick, checkedChoiceId } =
+    props
 
   const [checkedId, setCheckedId] = useState(checkedChoiceId)
 
   const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount
 
-  const handleVoteClick = useCallback((event, callbackValue) => {
-    setCheckedId(callbackValue.id)
-    onHandleVoteClick(callbackValue)
-  }, [onHandleVoteClick])
+  const handleVoteClick = useCallback(
+    (event, callbackValue) => {
+      setCheckedId(callbackValue.id)
+      onHandleVoteClick(callbackValue)
+    },
+    [onHandleVoteClick]
+  )
 
   useEffect(() => {
     setCheckedId(checkedChoiceId)
@@ -31,7 +33,7 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
 
   return (
     <QuestionDetailsInfiniteWrapper id={id} className={className}>
-      {data?.length > 0 &&
+      {data?.length > 0 ? (
         data.map((item, index) => (
           <QuestionDetailCard
             key={item.choice + index}
@@ -44,7 +46,12 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
             onVoteClick={handleVoteClick}
             checkedId={checkedId}
           />
-        ))}
+        ))
+      ) : (
+        <Grid padding="3rem">
+          <Text size="l">No choices to display</Text>
+        </Grid>
+      )}
 
       {dataLoading &&
         Array.from(Array(placeholderItemsCount).keys()).map((index) => (
