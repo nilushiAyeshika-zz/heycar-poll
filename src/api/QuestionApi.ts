@@ -8,9 +8,7 @@ class QuestionAPI {
   getQuestions = async (page = 1) => {
     const config = {
       headers: ApiHelper.createHeader(),
-      url: 'https://polls.apiblueprint.org/questions',
-      // url: 'https://private-anon-1afab8059f-pollsapi.apiary-mock.com/questions',
-      // url: `${process.env.REACT_APP_SERVICES}/questions`,
+      url: `${process.env.REACT_APP_SERVICES}/questions`,
       method: 'get',
       params: { page },
     }
@@ -21,7 +19,7 @@ class QuestionAPI {
   getQuestionDetails = async (id: number) => {
     const config = {
       headers: ApiHelper.createHeader(),
-      url: `https://polls.apiblueprint.org/questions/${id}`,
+      url: `${process.env.REACT_APP_SERVICES}/questions/${id}`,
       method: 'get',
     }
 
@@ -36,7 +34,7 @@ class QuestionAPI {
   ) => {
     const config = {
       headers: ApiHelper.createHeader(),
-      url: `https://polls.apiblueprint.org/questions/${question_id}/choices/${choice_id}`,
+      url: `${process.env.REACT_APP_SERVICES}/questions/${question_id}/choices/${choice_id}`,
       method: 'post',
       data: {
         url,
@@ -51,7 +49,7 @@ class QuestionAPI {
   addNewQuestion = async (question: string, choices: string[]) => {
     const config = {
       headers: ApiHelper.createHeader(),
-      url: `https://polls.apiblueprint.org/questions?1`,
+      url: `${process.env.REACT_APP_SERVICES}/questions?1`,
       method: 'post',
       data: {
         question,
