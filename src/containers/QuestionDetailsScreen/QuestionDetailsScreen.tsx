@@ -51,7 +51,9 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
             className="questions-title"
             data-test="question-title"
           >
-            <Text size="xl" className="details-title">Questions Detail</Text>
+            <Text size="xl" className="details-title">
+              Questions Detail
+            </Text>
           </IconTitle>
           <Button
             onClick={handleBackNavigation}

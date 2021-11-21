@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { RadioButtonProps } from './RadioButton.types'
-
 const LabelStyles = styled.label`
   display: block;
   position: relative;

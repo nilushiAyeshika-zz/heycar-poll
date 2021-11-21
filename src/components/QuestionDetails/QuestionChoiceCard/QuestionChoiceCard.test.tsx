@@ -8,8 +8,6 @@ import store from '../../../store'
 import { appTheme } from '../../../theme/Theme'
 import { findByTestAttr } from '../../../utils/test.utils'
 
-
-
 const id = '23'
 const className = 'className'
 const choice = 'name'
@@ -17,9 +15,9 @@ const votes = 5
 const onVoteClick = jest.fn()
 const questionId = '34'
 const url = 'url'
-const disabled= false
-const checkedId=4
-const precentage=23.2
+const disabled = false
+const checkedId = 4
+const percentage = 23.2
 
 const defaultProps = {
   id,
@@ -31,7 +29,7 @@ const defaultProps = {
   url,
   disabled,
   checkedId,
-  precentage,
+  percentage,
 }
 
 const setup = (props: any) => {
@@ -66,8 +64,8 @@ describe('<QuestionChoiceCard />', () => {
     const component = findByTestAttr(wrapper, 'choice-vote')
     expect(component.exists()).toBeTruthy()
   })
-  test('test choice precentage', () => {
-    const component = findByTestAttr(wrapper, 'choice-precentage')
+  test('test choice percentage', () => {
+    const component = findByTestAttr(wrapper, 'choice-percentage')
     expect(component.exists()).toBeTruthy()
   })
   test('test vote choice area', () => {
@@ -79,4 +77,3 @@ describe('<QuestionChoiceCard />', () => {
     expect(component.exists()).toBeTruthy()
   })
 })
-

@@ -4,17 +4,22 @@ import Modal from './Modal.component'
 import { findByTestAttr } from '../../../utils/test.utils'
 
 const className = 'className'
-const modalIsOpen= false
-const afterOpenModal=jest.fn()
-const closeModal=jest.fn()
+const modalIsOpen = false
+const afterOpenModal = jest.fn()
+const closeModal = jest.fn()
 const style = {}
-const children= {}
+const children = {}
 
 const defaultProps = {
-  className, modalIsOpen, afterOpenModal, closeModal, style, children 
+  className,
+  modalIsOpen,
+  afterOpenModal,
+  closeModal,
+  style,
+  children,
 }
 
-const setup = (props:any) => {
+const setup = (props: any) => {
   const setupProps = { ...props }
   return mount(<Modal {...setupProps} />)
 }
@@ -26,4 +31,3 @@ describe('<Modal/>', () => {
     expect(element.exists()).toBeTruthy()
   })
 })
-

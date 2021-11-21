@@ -37,7 +37,7 @@ const defaultProps = {
   children,
 }
 
-const setup = (props:any) => {
+const setup = (props: any) => {
   const setupProps = { ...props }
   return shallow(<Text {...setupProps} />)
 }
@@ -49,4 +49,3 @@ describe('<Text/>', () => {
     expect(element.exists()).toBeTruthy()
   })
 })
-

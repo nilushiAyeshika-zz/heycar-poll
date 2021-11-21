@@ -1,10 +1,7 @@
-import React, { forwardRef, useCallback } from 'react'
+import { forwardRef, useCallback } from 'react'
 import classnames from 'classnames'
 
-import Grid from '../../Layout/Grid/Grid.component'
-
 import { RadioButtonProps } from './RadioButton.types'
-
 import LabelStyles from './RadioButton.theme'
 
 const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>((props, ref) => {

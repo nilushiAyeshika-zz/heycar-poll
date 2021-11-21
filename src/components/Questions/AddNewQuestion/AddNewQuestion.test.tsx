@@ -13,7 +13,7 @@ const onSubmitSuccess = false
 
 const defaultProps = {
   className,
-  onSubmitSuccess
+  onSubmitSuccess,
 }
 
 const setup = (props: any) => {
@@ -58,7 +58,7 @@ describe('<AddNewQuestion />', () => {
   })
   test('test question choices field item(s)', () => {
     const component = findByTestAttr(wrapper, 'question-choices-field-item')
-   expect(component.length).toBeGreaterThan(0)
+    expect(component.length).toBeGreaterThan(0)
   })
   test('test question choices field error ', () => {
     const component = findByTestAttr(wrapper, 'question-choices-field-error')

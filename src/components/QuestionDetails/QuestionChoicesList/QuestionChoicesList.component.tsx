@@ -4,10 +4,9 @@ import Grid from '../../Layout/Grid/Grid.component'
 import QuestionChoiceCard from '../QuestionChoiceCard/QuestionChoiceCard.component'
 import QuestionListContentLoader from '../QuestionListContentLoader/QuestionListContentLoader.component'
 import Text from '../../Core/Text/Text.component'
-import { getPrecentage } from '../../../utils/common.utils'
+import { getPercentage } from '../../../utils/common.utils'
 
 import { IDetailListProps } from './QuestionChoicesList.types'
-
 import QuestionChoiceListWrapper from './QuestionChoicesList.theme'
 
 const DefaultPlaceholderItemsCount = 3
@@ -51,7 +50,7 @@ const QuestionChoicesList: React.FC<IDetailListProps> = (props) => {
             votes={item.votes}
             onVoteClick={handleVoteClick}
             checkedId={checkedId}
-            precentage={getPrecentage(item.votes, data)}
+            percentage={getPercentage(item.votes, data)}
             data-test="question-choices-item"
           />
         ))
@@ -64,7 +63,11 @@ const QuestionChoicesList: React.FC<IDetailListProps> = (props) => {
   )
 
   return (
-    <QuestionChoiceListWrapper id={id} className={className} data-test="question-choices-list-wrapper">
+    <QuestionChoiceListWrapper
+      id={id}
+      className={className}
+      data-test="question-choices-list-wrapper"
+    >
       {dataLoading ? renderDataLoading() : renderChoiceList()}
     </QuestionChoiceListWrapper>
   )

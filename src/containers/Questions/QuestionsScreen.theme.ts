@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { appTheme } from '../../theme/Theme'
-
 export const QuestionScreenWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -38,7 +36,7 @@ export const QuestionScreenWrapper = styled.div`
     .question-screen-wrapper {
       padding: 0 1.5rem;
     }
-   }
+  }
 `
 
 export const AddNewWrapper = styled.div`

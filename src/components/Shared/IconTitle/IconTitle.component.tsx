@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { IconTitleProps } from './IconTitle.types'
-
 import { IconWrapperStyles, IconTitleStyles } from './IconTitle.theme'
 
 const IconTitle: React.FC<IconTitleProps> = (props) => {

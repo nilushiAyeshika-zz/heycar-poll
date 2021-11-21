@@ -11,10 +11,15 @@ const disabled = false
 const name = 'name'
 
 const defaultProps = {
-  className, onClick, callbackValue, checked, disabled, name
+  className,
+  onClick,
+  callbackValue,
+  checked,
+  disabled,
+  name,
 }
 
-const setup = (props:any) => {
+const setup = (props: any) => {
   const setupProps = { ...props }
   return shallow(<RadioButton {...setupProps} />)
 }
@@ -26,4 +31,3 @@ describe('<RadioButton/>', () => {
     expect(element.exists()).toBeTruthy()
   })
 })
-

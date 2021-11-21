@@ -9,28 +9,34 @@ import { appTheme } from '../../../theme/Theme'
 import { findByTestAttr } from '../../../utils/test.utils'
 
 const choicesList = [
-      {
-          choice: "Swift",
-          url: "/questions/1/choices/1",
-          votes: 2048
-      },
-      {
-        choice: "Saloon",
-        url: "/questions/1/choices/3",
-        votes: 234
-    }
-  ]
+  {
+    choice: 'Swift',
+    url: '/questions/1/choices/1',
+    votes: 2048,
+  },
+  {
+    choice: 'Saloon',
+    url: '/questions/1/choices/3',
+    votes: 234,
+  },
+]
 
 const id = '23'
 const className = 'className'
 const placeholderCount = 3
 const dataLoading = false
-const data:any = []
+const data: any = []
 const onHandleVoteClick = jest.fn()
-const checkedChoiceId  = false
+const checkedChoiceId = false
 
 const defaultProps = {
-  id, className, placeholderCount, data, dataLoading, onHandleVoteClick, checkedChoiceId
+  id,
+  className,
+  placeholderCount,
+  data,
+  dataLoading,
+  onHandleVoteClick,
+  checkedChoiceId,
 }
 
 const defaultPropsForAvailableData = {

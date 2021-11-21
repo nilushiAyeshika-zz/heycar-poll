@@ -9,7 +9,6 @@ import CardContentLoader from '../CardContentLoader/CardContentLoader.component'
 import Text from '../../Core/Text/Text.component'
 
 import { QuestionListProps } from './QuestionList.types'
-
 import QuestionListWrapper from './QuestionList.theme'
 
 const DefaultPlaceholderItemsCount = 6
@@ -43,7 +42,7 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
       loader={renderLoadingView()}
       refreshFunction={() => null}
       pullDownToRefreshThreshold={50}
-      data-test="question-list-infiniter"
+      data-test="question-list-infinite"
     >
       {data.length > 0 ? (
         data.map((item) => {

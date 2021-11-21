@@ -2,7 +2,6 @@ import React from 'react'
 import Modal from 'react-modal'
 
 import { ModalProps } from './Modal.types'
-
 import { ModalWrapper } from './Modal.theme'
 
 const AddNewQuestion: React.FC<ModalProps> = (props) => {

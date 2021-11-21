@@ -37,8 +37,11 @@ const QuestionChoiceCardWrapper = styled.div`
     display: none;
   }
 
-  @media(max-width: 914px) {
-    .details-vote-amount, .details-percentage, .details-vote, .details-choice {
+  @media (max-width: 914px) {
+    .details-vote-amount,
+    .details-percentage,
+    .details-vote,
+    .details-choice {
       width: 100%;
       justify-content: flex-start;
       margin-bottom: 2rem;

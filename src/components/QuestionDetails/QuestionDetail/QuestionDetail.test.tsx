@@ -9,16 +9,16 @@ import { appTheme } from '../../../theme/Theme'
 import { findByTestAttr } from '../../../utils/test.utils'
 
 const questionData = {
-  question: "Favourite programming language?",
-  published_at: "2014-11-11T08:40:51.620Z",
-  url: "/questions/1",
+  question: 'Favourite programming language?',
+  published_at: '2014-11-11T08:40:51.620Z',
+  url: '/questions/1',
   choices: [
-      {
-          colour: "Swift",
-          url: "/questions/1/choices/1",
-          votes: 2048
-      }
-  ]
+    {
+      colour: 'Swift',
+      url: '/questions/1/choices/1',
+      votes: 2048,
+    },
+  ],
 }
 
 const id = '23'
@@ -28,7 +28,7 @@ const data = questionData
 const defaultProps = {
   id,
   loading,
-  data
+  data,
 }
 
 const setup = (props: any) => {

@@ -48,7 +48,7 @@ export const CardStyles = styled.div<CardProps>`
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .5s ease;
+    transition: 0.5s ease;
     background-color: rgba(0, 0, 0, 0.8);
     border-radius: 2rem;
 

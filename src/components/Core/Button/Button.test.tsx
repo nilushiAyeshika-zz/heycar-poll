@@ -5,23 +5,23 @@ import { findByTestAttr } from '../../../utils/test.utils'
 
 const className = 'className'
 const backgroundColor = '#ccc'
-const margin= '10px'
+const margin = '10px'
 const padding = '10px'
-const children= {}
+const children = {}
 const onClick = jest.fn()
 const callbackValue = jest.fn()
 const disabled = false
 const startIcon = 'startIcon'
 const endIcon = 'endIcon'
 const width = '30px'
-const maxWidth='50px'
-const minWidth='10px'
-const fullWidth='100%'
-const height='5px'
-const textColor='#ccc'
-const size='12px'
-const hoverColor='#fff'
-const type='text'
+const maxWidth = '50px'
+const minWidth = '10px'
+const fullWidth = '100%'
+const height = '5px'
+const textColor = '#ccc'
+const size = '12px'
+const hoverColor = '#fff'
+const type = 'text'
 
 const defaultProps = {
   className,
@@ -45,7 +45,7 @@ const defaultProps = {
   type,
 }
 
-const setup = (props:any) => {
+const setup = (props: any) => {
   const setupProps = { ...props }
   return shallow(<Button {...setupProps} />)
 }
@@ -61,4 +61,3 @@ describe('<Button/>', () => {
     expect(element.exists()).toBeTruthy()
   })
 })
-

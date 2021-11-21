@@ -42,18 +42,18 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
         isLightIcon={isLightColor(iconBgColor)}
         data-test="card-icon-title"
       >
-        <Text size="l" weight="bold" className="card-title"  data-test="card-title">
+        <Text size="l" weight="bold" className="card-title" data-test="card-title">
           {title}
         </Text>
       </IconTitle>
       <CardBody>
-        <OptionWrapper  data-test="card-published-at">
+        <OptionWrapper data-test="card-published-at">
           <Text size="m" weight="bold">
             Published At:
           </Text>
           <Text size="m">&nbsp;{publishedAt}</Text>
         </OptionWrapper>
-        <OptionWrapper  data-test="card-choices-count">
+        <OptionWrapper data-test="card-choices-count">
           <Text size="m" weight="bold">
             Choices:
           </Text>

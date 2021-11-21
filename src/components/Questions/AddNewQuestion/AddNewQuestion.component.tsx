@@ -62,7 +62,12 @@ const AddNewQuestion: React.FC<AddNewQuestionProps> = (props) => {
                 className="formik-field"
                 data-test="question-field"
               />
-              <ErrorMessage name="question" component="div" className="formik-error-label" data-test="question-field-error"/>
+              <ErrorMessage
+                name="question"
+                component="div"
+                className="formik-error-label"
+                data-test="question-field-error"
+              />
             </Grid>
             <FieldArray name="choices" data-test="question-choices-fields">
               {({ remove, push }) => (
@@ -118,7 +123,12 @@ const AddNewQuestion: React.FC<AddNewQuestionProps> = (props) => {
                       Add Choice
                     </Text>
                   </Button>
-                  <Text className="info-message" size="xs" margin="1rem 0 2rem 0" data-test="add-new-question-form-note">
+                  <Text
+                    className="info-message"
+                    size="xs"
+                    margin="1rem 0 2rem 0"
+                    data-test="add-new-question-form-note"
+                  >
                     You can add only maximum 04 choices
                   </Text>
                 </Grid>

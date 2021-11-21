@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { getFontSize, getColor } from '../../../utils/theme.utils'
-
 import { TextProps } from './Text.types'
 
 const TextStyles = styled.p<TextProps>`

@@ -4,18 +4,24 @@ import IconTitle from './IconTitle.component'
 import { findByTestAttr } from '../../../utils/test.utils'
 
 const className = 'className'
-const icon= 'icon'
+const icon = 'icon'
 const backgroundColor = '#ccc'
-const margin= '10px'
+const margin = '10px'
 const padding = '10px'
 const isLightIcon = true
-const children= {}
+const children = {}
 
 const defaultProps = {
-  className, icon, backgroundColor, children, margin, padding, isLightIcon 
+  className,
+  icon,
+  backgroundColor,
+  children,
+  margin,
+  padding,
+  isLightIcon,
 }
 
-const setup = (props:any) => {
+const setup = (props: any) => {
   const setupProps = { ...props }
   return shallow(<IconTitle {...setupProps} />)
 }
@@ -31,4 +37,3 @@ describe('<IconTitle/>', () => {
     expect(element.exists()).toBeTruthy()
   })
 })
-

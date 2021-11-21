@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { appTheme } from '../../../theme/Theme'
-
 import { IconTitleProps } from './IconTitle.types'
 
 export const IconWrapperStyles = styled.div`

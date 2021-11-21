@@ -1,7 +1,6 @@
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 import { GridProps } from './Grid.types'
-
 import GridStyles from './Grid.theme'
 
 const Grid = forwardRef<HTMLDivElement, GridProps>((props, ref) => {

@@ -73,8 +73,8 @@ describe('<QuestionList />', () => {
     const component = findByTestAttr(wrapper, 'question-list-wrapper')
     expect(component.exists()).toBeTruthy()
   })
-  test('test question list infiniter component', () => {
-    const component = findByTestAttr(wrapper, 'question-list-infiniter')
+  test('test question list infinite component', () => {
+    const component = findByTestAttr(wrapper, 'question-list-infinite')
     expect(component.exists()).toBeTruthy()
   })
 

@@ -60,10 +60,12 @@ const QuestionDetail: React.FC<IDetails> = (props) => {
               data-test="question-icon"
             >
               <Grid className="question-wrapper">
-                <Text size="l" weight="bold" >
-                  Question: &nbsp; 
+                <Text size="l" weight="bold">
+                  Question: &nbsp;
                 </Text>
-                <Text size="l" data-test="question-title">{data?.question}</Text>
+                <Text size="l" data-test="question-title">
+                  {data?.question}
+                </Text>
               </Grid>
             </IconTitle>
           </Grid>

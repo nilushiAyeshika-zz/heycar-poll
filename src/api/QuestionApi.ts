@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 import ApiHelper from '../helpers/ApiHelper'
-
 import { IConfig } from './Question.types'
 
 class QuestionAPI {

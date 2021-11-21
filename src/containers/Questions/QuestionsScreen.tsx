@@ -15,7 +15,6 @@ import AddNewQuestion from '../../components/Questions/AddNewQuestion/AddNewQues
 import Modal from '../../components/Shared/Modal/Modal.component'
 
 import { QuestionScreenWrapper, customModalStyles, AddNewWrapper } from './QuestionsScreen.theme'
-import { IQuestionScreen } from './QuestionsScreen.types'
 
 const QuestionScreen: React.FC = (props: any) => {
   const { questionList, isListLoading, nextPageLink } = props

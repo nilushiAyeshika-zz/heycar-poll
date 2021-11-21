@@ -1,9 +1,8 @@
-import React, { forwardRef, useCallback } from 'react'
+import { forwardRef, useCallback } from 'react'
 
 import Grid from '../../Layout/Grid/Grid.component'
 
-import { ButtonProps, ButtonTheme } from './Button.types'
-
+import { ButtonProps } from './Button.types'
 import ButtonStyles from './Button.theme'
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {

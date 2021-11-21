@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react'
 
 import { TextProps } from './Text.types'
-
 import TextStyles from './Text.theme'
 
 const Text: React.FC<TextProps> = (props) => {
