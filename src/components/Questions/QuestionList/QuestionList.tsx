@@ -1,10 +1,11 @@
-import React, { useEffect, useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import moment from 'moment'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useNavigate } from 'react-router-dom'
 
 import Card from '../Card/Card.component'
 import Grid from '../../Layout/Grid/Grid.component'
+import CardContentLoader from '../CardContentLoader/CardContentLoader'
 
 import { QuestionListProps } from './QuestionList.types'
 
@@ -35,7 +36,6 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
       loader={<h4>Loading...</h4>}
       refreshFunction={() => null}
       pullDownToRefreshThreshold={50}
-      // height={200}
     >
       {data.length > 0 &&
         data.map((item) => {
@@ -59,7 +59,7 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
 
   const renderLoadingView = () => {
     return Array.from(Array(placeholderItemsCount).keys()).map((index) => (
-      <Grid key={index}> loading </Grid>
+      <CardContentLoader key={index} />
     ))
   }
 
