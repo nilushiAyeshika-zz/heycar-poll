@@ -28,15 +28,19 @@ const QuestionChoiceCard: React.FC<IDetailCard> = (props) => {
   return (
     <QuestionChoiceCardWrapper id={id} className={className} data-test="question-choice-card-wrapper">
       <Grid className="details-choice" data-test="choice-name">
+        <Text size="m" weight="bold" className="label">Choice: &nbsp;</Text>
         <Text size="m">{choice}</Text>
       </Grid>
       <Grid className="details-vote-amount" data-test="choice-vote">
+        <Text size="m" weight="bold" className="label">Vote Amount: &nbsp;</Text>
         <Text size="m">{votes}</Text>
       </Grid>
       <Grid className="details-percentage" data-test="choice-precentage">
+        <Text size="m" weight="bold" className="label">Percentage: &nbsp;</Text>
         <Text size="m">{precentage}%</Text>
       </Grid>
       <Grid className="details-vote"  data-test="vote-choice">
+        <Text size="m" weight="bold" className="label">Vote: &nbsp;</Text>
         <RadioButton
           id={radioButtonId}
           callbackValue={{ questionId, url, choiceId, id: radioButtonId, choiceName: choice }}

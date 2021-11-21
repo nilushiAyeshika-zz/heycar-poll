@@ -17,8 +17,6 @@ Create .env file and add below lines into file
 
 ```
 REACT_APP_SERVICES=https://polls.apiblueprint.org
-
-
 ```
 
 ## Available Scripts

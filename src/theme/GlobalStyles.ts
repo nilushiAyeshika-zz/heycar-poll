@@ -52,4 +52,9 @@ export default createGlobalStyle`
 	-moz-appearance: textfield;
 	}
 
+	@media(max-width: 448px) {
+		.ReactModal__Content {
+			width: 30rem !important;
+		}
+	}
 `

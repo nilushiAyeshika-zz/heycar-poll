@@ -43,7 +43,7 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
         margin="4rem 0"
         direction="column"
       >
-        <Grid>
+        <Grid justifyContent="space-between" className="details-header-wrapper">
           <IconTitle
             margin="0 0 4rem 0"
             icon={<FontAwesomeIcon icon={faList} />}
@@ -51,12 +51,12 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
             className="questions-title"
             data-test="question-title"
           >
-            <Text size="xl">Questions Detail</Text>
+            <Text size="xl" className="details-title">Questions Detail</Text>
           </IconTitle>
           <Button
             onClick={handleBackNavigation}
             width="10rem"
-            margin="4rem 0"
+            margin="0 0 4rem 0"
             className="vote-button"
             data-test="question-back-button"
             startIcon={<FontAwesomeIcon icon={faArrowLeft} />}

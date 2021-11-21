@@ -30,6 +30,30 @@ const QuestionChoiceCardWrapper = styled.div`
     width: 20%;
     justify-content: center;
   }
+
+  .label {
+    align-items: center;
+    display: flex;
+    display: none;
+  }
+
+  @media(max-width: 914px) {
+    .details-vote-amount, .details-percentage, .details-vote, .details-choice {
+      width: 100%;
+      justify-content: flex-start;
+      margin-bottom: 2rem;
+    }
+
+    .details-choice {
+      margin-top: 2rem;
+    }
+
+    .label {
+      display: flex;
+    }
+
+    min-height: auto;
+  }
 `
 
 export default QuestionChoiceCardWrapper

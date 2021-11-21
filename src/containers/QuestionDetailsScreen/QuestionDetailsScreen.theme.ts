@@ -18,6 +18,22 @@ export const QuestionDetailsScreenWrapper = styled.div`
       width: 31.5rem;
       padding: 0;
     }
+
+    .details-header-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .questions-title {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 394px) {
+    .details-title {
+      font-size: 3.2rem;
+    }
   }
 `
 

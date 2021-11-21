@@ -12,6 +12,8 @@ export const CardStyles = styled.div<CardProps>`
   box-shadow: 0px 2px 6px 1px rgba(0, 22, 99, 0.12);
   border-radius: 2rem;
   transition: transform 0.2s;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
   .card-icon-title {
     background-color: ${appTheme.colors.DEFAULT_CARD_BG};
@@ -31,7 +33,29 @@ export const CardStyles = styled.div<CardProps>`
 
   &:hover {
     cursor: pointer;
-    transform: scale(1.03);
+  }
+
+  &:hover .overlay {
+    opacity: 1;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 2rem;
+
+    svg {
+      font-size: 4rem;
+      color: ${appTheme.colors.TYPHOGRAPHY_WHITE};
+    }
   }
 
   @media (max-width: 460px) {

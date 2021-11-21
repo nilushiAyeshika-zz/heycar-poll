@@ -34,7 +34,7 @@ const QuestionListWrapper = styled.div`
     flex-wrap: wrap;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1334px) {
     .question-card {
       &:nth-child(3n) {
         margin-right: 1.5rem;
@@ -49,7 +49,7 @@ const QuestionListWrapper = styled.div`
     }
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 923px) {
     .question-card {
       margin-right: 0;
       &:nth-child(3n) {

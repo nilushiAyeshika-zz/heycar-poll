@@ -7,6 +7,7 @@ import { IconTitleProps } from './IconTitle.types'
 export const IconWrapperStyles = styled.div`
   display: flex;
   width: 3.6rem;
+  min-width: 3.6rem;
   height: 3.6rem;
   border-radius: 100%;
   justify-content: center;

@@ -12,12 +12,33 @@ export const QuestionScreenWrapper = styled.div`
   }
 
   @media (max-width: 920px) {
+    .question-header-wrapper {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .add-button {
+      margin: 0 0 2rem 0;
+    }
+
+    .questions-title {
+      align-items: center;
+      width: 24.5rem;
+      padding: 0;
+    }
+
     .questions-title {
       align-items: center;
       width: 24.5rem;
       padding: 0;
     }
   }
+
+  @media (max-width: 516px) {
+    .question-screen-wrapper {
+      padding: 0 1.5rem;
+    }
+   }
 `
 
 export const AddNewWrapper = styled.div`

@@ -1,13 +1,13 @@
-import React, { forwardRef, useCallback } from 'react'
+import { forwardRef, useCallback } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faQuestion, faList } from '@fortawesome/free-solid-svg-icons'
 
 import IconTitle from '../../Shared/IconTitle/IconTitle.component'
 import Text from '../../Core/Text/Text.component'
 import { generateRandomColors, isLightColor } from '../../../utils/theme.utils'
+import Grid from '../../Layout/Grid/Grid.component'
 
 import { CardProps } from './Card.types'
-
 import { CardStyles, CardBody, OptionWrapper } from './Card.theme'
 
 const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
@@ -60,6 +60,9 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
           <Text size="m">&nbsp;{choices}</Text>
         </OptionWrapper>
       </CardBody>
+      <Grid className="overlay" justifyContent="center" alignItems="center">
+        <FontAwesomeIcon icon={faList} />
+      </Grid>
     </CardStyles>
   )
 })

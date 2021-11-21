@@ -60,7 +60,7 @@ const QuestionScreen: React.FC = (props: any) => {
         className="question-screen-wrapper"
         data-test="questions-screen-wrapper"
       >
-        <Grid>
+        <Grid className="question-header-wrapper">
           <IconTitle
             margin="0 0 4rem 0"
             icon={<FontAwesomeIcon icon={faRocket} />}
@@ -74,7 +74,7 @@ const QuestionScreen: React.FC = (props: any) => {
             onClick={handleOpenAddNewModal}
             width="20rem"
             height="4.5rem"
-            className="vote-button"
+            className="add-button"
             startIcon={<FontAwesomeIcon icon={faPlus} />}
           >
             <Text size="m" color="typo-white">
