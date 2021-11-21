@@ -11,7 +11,11 @@ const Main: FC = () => {
   return (
     <Grid data-test="main-container">
       <Offline data-test="offline-banner-container">
-        You're offline right now. Check your connection.
+        <Grid className="offline-wrapper-overlay">
+          <Grid className="offline-wrapper-banner">
+            You're offline right now. Check your connection.
+          </Grid>
+        </Grid>
       </Offline>
       <RouteConfig data-test="route-config-component" />
       <ToastContainer data-test="toast-component" />

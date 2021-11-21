@@ -52,9 +52,37 @@ export default createGlobalStyle`
 	-moz-appearance: textfield;
 	}
 
+	.offline-wrapper-overlay {
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 99;
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.offline-wrapper-banner {
+		height: 35px;
+    width: 100%;
+    display: flex;
+    background: #ff0000;
+    justify-content: c;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+	}
+
 	@media(max-width: 448px) {
 		.ReactModal__Content {
 			width: 30rem !important;
+		}
+	}
+
+	@media(max-width: 395px) {
+		.offline-wrapper-banner {
+			padding: 0 20px;
+			height: 90px;
 		}
 	}
 `
