@@ -45,7 +45,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>((props, ref) => {
         backgroundColor={iconBgColor}
         isLightIcon={isLightColor(iconBgColor)}
       >
-        <Text size="l" weight="bold">{title}</Text>
+        <Text size="l" weight="bold" className="card-title">{title}</Text>
       </IconTitle>
       <CardBody>
         <OptionWrapper>

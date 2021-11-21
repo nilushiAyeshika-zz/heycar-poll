@@ -3,7 +3,7 @@ import React from 'react';
 import { TextSizeType, ColorType } from "../../../utils/theme.utils";
 
 export interface ButtonProps {
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
   onClick?: (callbackValue?: any, event?: any) => any
   callbackValue?: any
@@ -20,18 +20,11 @@ export interface ButtonProps {
 	backgroundColor?: ColorType
 	textColor?: ColorType
 	hoverColor?: ColorType
-	size?: TextSizeType;
+	size?: TextSizeType
+  type?: 'button' | 'reset' | 'submit'
 }
 
-export enum Theme {
+export enum ButtonTheme {
   primary = 'primary',
   secondary = 'secondary',
-  danger = 'danger',
-  light = 'light',
-}
-
-export enum Variant {
-  normal = 'normal',
-  inverse = 'inverse',
-  text = 'text',
 }

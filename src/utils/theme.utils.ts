@@ -29,6 +29,8 @@ export type ColorType =
 	| "typo-black"
 	| "typo-white"
 	| "button-primary"
+	| "button-secondary"
+	| "button-secondary-hover"
 	| undefined;
 
 export const getColor = (color: ColorType ) => {
@@ -39,6 +41,10 @@ export const getColor = (color: ColorType ) => {
 			return appTheme.colors.TYPHOGRAPHY_WHITE;
 		case "button-primary":
 			return appTheme.colors.BUTTON_PRIMARY;
+		case "button-secondary":
+			return appTheme.colors.BUTTON_SECONDARY;
+		case "button-secondary-hover":
+			return appTheme.colors.BUTTON_SECONDARY_HOVERED;
 		default:
 			return color;
 	}

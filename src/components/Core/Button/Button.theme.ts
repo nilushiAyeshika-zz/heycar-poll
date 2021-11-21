@@ -31,7 +31,8 @@ const ButtonStyles = styled.button<ButtonProps>`
   &:disabled {
     cursor: default;
     opacity: 0.6;
-    background: ${(props) => props.theme.colors.BUTTON_PRIMARY};
+    background: background: ${(props) =>
+      getColor(props.backgroundColor) || props.theme.colors.BUTTON_PRIMARY};
   }
 
   .icon-wrapper {

@@ -2,7 +2,7 @@ import React, { forwardRef, useCallback } from "react";
 
 import Grid from "../../Layout/Grid/Grid.component";
 
-import { ButtonProps } from './Button.types';
+import { ButtonProps, ButtonTheme } from './Button.types';
 
 import ButtonStyles from './Button.theme';
 
@@ -26,6 +26,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     size,
     hoverColor,
     margin,
+    type,
   } = props;
 
   const handleClick = useCallback((e) => {
@@ -52,6 +53,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       size={size}
       hoverColor={hoverColor}
       margin={margin}
+      type={type}
     >
       {
         startIcon ? (
@@ -69,6 +71,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
 Button.defaultProps = {
   startIcon: undefined,
+  type: 'button',
 };
 
 export default Button;

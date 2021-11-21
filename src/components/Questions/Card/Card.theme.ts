@@ -20,6 +20,14 @@ export const CardStyles = styled.div<CardProps>`
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
   }
+
+  .card-title {
+    max-width: 305px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   
   &:hover {
     cursor: pointer;
@@ -29,6 +37,7 @@ export const CardStyles = styled.div<CardProps>`
   @media(max-width: 460px) {
     width: 100%;
   }
+  
 `;
 
 export const CardBody = styled.div`

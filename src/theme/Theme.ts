@@ -2,9 +2,13 @@ export const appTheme = {
 	colors: {
 		TYPHOGRAPHY_DARK: "#000000",
 		TYPHOGRAPHY_WHITE: "#FFFFFF",
+		TYPOGRAPHY_ERROR: "#FF0000",
 
     BUTTON_PRIMARY: "rgba(21, 139, 234, 1)",
     BUTTON_PRIMARY_HOVERED: "rgba(2, 87, 215, 1)",
+
+    BUTTON_SECONDARY: "rgb(11, 163, 96)",
+    BUTTON_SECONDARY_HOVERED: "rgb(6, 132, 76)",
 
 		DEFAULT_ICON_BG: "rgb(246, 157, 27)",
 

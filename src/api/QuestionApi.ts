@@ -43,6 +43,21 @@ class QuestionAPI {
 
     return axios.request(config as IConfig);
   }
+
+  addNewQuestion =
+    async (question: string, choices: string[]) => {
+      const config = {
+        headers: ApiHelper.createHeader(),
+        url: `https://polls.apiblueprint.org/questions?1`,
+        method: 'post',
+        data: { 
+          question,
+          choices,
+        },
+      };
+
+    return axios.request(config as IConfig);
+  }
 }
 
 export default new QuestionAPI();

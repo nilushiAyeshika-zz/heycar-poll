@@ -9,6 +9,15 @@ class QuestionAPIService {
       throw error;
     }
   }
+
+  addNewQuestion = async (question: string, choices: string[]) => {
+    try {
+      const { data } = await QuestionApi.addNewQuestion(question, choices);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 export default new QuestionAPIService();
