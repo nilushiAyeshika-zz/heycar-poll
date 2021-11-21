@@ -64,7 +64,7 @@ const QuestionScreen: React.FC = (props: any) => {
 
   const schema = Yup.object().shape({
     question: Yup.string().trim().required('Required Field'),
-    choices: Yup.array().of(Yup.string().trim().required('Must have Choice')),
+    choices: Yup.array().of(Yup.string().trim().required('Required Field')),
   })
 
   useEffect(() => {
