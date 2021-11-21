@@ -5,13 +5,13 @@ import { useNavigate } from 'react-router-dom'
 
 import Card from '../Card/Card.component'
 import Grid from '../../Layout/Grid/Grid.component'
-import CardContentLoader from '../CardContentLoader/CardContentLoader'
+import CardContentLoader from '../CardContentLoader/CardContentLoader.component'
 
 import { QuestionListProps } from './QuestionList.types'
 
 import QuestionListWrapper from './QuestionList.theme'
 
-const DefaultPlaceholderItemsCount = 3
+const DefaultPlaceholderItemsCount = 6
 
 const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
   const { className, placeholderCount, data, dataLoading, hasMoreData, onNextPageRequested } = props

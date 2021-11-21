@@ -2,16 +2,19 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import Grid from '../../../components/Layout/Grid/Grid.component'
 import QuestionDetailCard from '../QuestionDetailCard/QuestionDetailCard.component'
+import QuestionListContentLoader from '../QuestionListContentLoader/QuestionListContentLoader.component'
 
 import { IDetailListProps } from './QuestionDetailsList.types'
 
 import QuestionDetailsInfiniteWrapper from './QuestionDetailsList.theme'
 
-const DefaultPlaceholderItemsCount = 5
+const DefaultPlaceholderItemsCount = 3
 
 const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
-  const { id, className, placeholderCount, data, dataLoading, onHandleVoteClick, checkedChoiceId } =
-    props
+  const {
+    id, className, placeholderCount, data, dataLoading,
+    onHandleVoteClick, checkedChoiceId 
+} = props
 
   const [checkedId, setCheckedId] = useState(checkedChoiceId)
 
@@ -20,7 +23,7 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
   const handleVoteClick = useCallback((event, callbackValue) => {
     setCheckedId(callbackValue.id)
     onHandleVoteClick(callbackValue)
-  }, [])
+  }, [onHandleVoteClick])
 
   useEffect(() => {
     setCheckedId(checkedChoiceId)
@@ -45,7 +48,7 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
 
       {dataLoading &&
         Array.from(Array(placeholderItemsCount).keys()).map((index) => (
-          <Grid key={index}> loading </Grid>
+          <QuestionListContentLoader key={index} />
         ))}
     </QuestionDetailsInfiniteWrapper>
   )
