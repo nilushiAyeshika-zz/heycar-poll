@@ -74,4 +74,3 @@ https://www.npmjs.com/package/enzyme
 
 https://www.npmjs.com/package/enzyme-adapter-react-17
 
-https://www.npmjs.com/package/jest-tobetype
