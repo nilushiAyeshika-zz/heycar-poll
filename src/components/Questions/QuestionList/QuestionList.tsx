@@ -10,7 +10,7 @@ import { QuestionListProps } from './QuestionList.types';
 
 import QuestionListWrapper from './QuestionList.theme';
 
-const DefaultPlaceholderItemsCount = 5;
+const DefaultPlaceholderItemsCount = 3;
 
 const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
   const {
@@ -34,37 +34,47 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
     navigate(`question/${questionId}`)
 	}, []);
 
+  const renderInfiniteScrollView = () => (
+    <InfiniteScroll
+      dataLength={data.length}
+      next={handleNextPageRequest}
+      hasMore={hasMoreData}
+      loader={<h4>Loading...</h4>}
+      refreshFunction={() => null}
+      pullDownToRefreshThreshold={50}
+      // height={200}
+    >
+      {data.length > 0 && data.map(item => {
+        const choiceLength = item.choices.length;
+        const publishedAt = moment(item.published_at).format('YYYY/MM/DD');
+
+        return (
+          <Card
+            key={item.published_at}
+            title={item.question}
+            publishedAt={publishedAt}
+            choices={choiceLength}
+            className="question-card"
+            onClick={handleQuestionItemClick}
+            callbackValue={item.url}
+          />
+        );
+      })}
+    </InfiniteScroll>
+  );
+
+  const renderLoadingView = () => {
+    return Array.from(Array(placeholderItemsCount).keys()).map((index) => (
+      <Grid key={index}> loading </Grid>
+    ));
+  }
+
   return (
     <QuestionListWrapper
       className={className}
     >
       <Grid className="card-list-inner">
-        <InfiniteScroll
-          dataLength={data.length}
-          next={handleNextPageRequest}
-          hasMore={hasMoreData}
-          loader={<h4>Loading...</h4>}
-          refreshFunction={() => null}
-          pullDownToRefreshThreshold={50}
-          // height={200}
-        >
-          {data.length > 0 && data.map(item => {
-            const choiceLength = item.choices.length;
-            const publishedAt = moment(item.published_at).format('YYYY/MM/DD');
-
-            return (
-              <Card
-                key={item.published_at}
-                title={item.question}
-                publishedAt={publishedAt}
-                choices={choiceLength}
-                className="question-card"
-                onClick={handleQuestionItemClick}
-                callbackValue={item.url}
-              />
-            );
-          })}
-        </InfiniteScroll>
+        {dataLoading ? renderLoadingView() : renderInfiniteScrollView()}
       </Grid>
     </QuestionListWrapper>
   )
