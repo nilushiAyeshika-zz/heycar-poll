@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 export interface IconTitleProps {
-	className?: string
-	margin?: string
-	padding?: string
-	backgroundColor?: string
-	isLightIcon?: boolean
+  className?: string
+  margin?: string
+  padding?: string
+  backgroundColor?: string
+  isLightIcon?: boolean
   icon: React.ReactNode
 }

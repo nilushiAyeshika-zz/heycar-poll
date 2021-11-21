@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { appTheme  } from "../../../theme/Theme";
+import { appTheme } from '../../../theme/Theme'
 
 const QuestionDetailsWrapper = styled.div`
-	display: flex;
+  display: flex;
   width: 100%;
   flex-direction: column;
 
@@ -26,7 +26,7 @@ const QuestionDetailsWrapper = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+
     .ques-card {
       &:nth-child(2n) {
         background-color: ${appTheme.colors.GRID_ROW_BG};
@@ -38,9 +38,8 @@ const QuestionDetailsWrapper = styled.div`
     align-self: flex-end;
   }
 
-  @media(max-width: 1300px) {
-    
+  @media (max-width: 1300px) {
   }
-`;
+`
 
-export default QuestionDetailsWrapper;
+export default QuestionDetailsWrapper

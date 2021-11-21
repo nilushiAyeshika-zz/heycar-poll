@@ -1,62 +1,54 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from 'react'
 
-import Grid from '../../../components/Layout/Grid/Grid.component';
-import QuestionDetailCard from "../QuestionDetailCard/QuestionDetailCard.component";
+import Grid from '../../../components/Layout/Grid/Grid.component'
+import QuestionDetailCard from '../QuestionDetailCard/QuestionDetailCard.component'
 
-import { IDetailListProps } from './QuestionDetailsList.types';
+import { IDetailListProps } from './QuestionDetailsList.types'
 
-import QuestionDetailsInfiniteWrapper from './QuestionDetailsList.theme';
+import QuestionDetailsInfiniteWrapper from './QuestionDetailsList.theme'
 
-const DefaultPlaceholderItemsCount = 5;
+const DefaultPlaceholderItemsCount = 5
 
 const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
-  const {
-    id,
-    className,
-    placeholderCount,
-    data,
-    dataLoading,
-    onHandleVoteClick,
-    checkedChoiceId,
-  } = props;
+  const { id, className, placeholderCount, data, dataLoading, onHandleVoteClick, checkedChoiceId } =
+    props
 
-  const [checkedId, setCheckedId] = useState(checkedChoiceId);
+  const [checkedId, setCheckedId] = useState(checkedChoiceId)
 
-  const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount;
+  const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount
 
   const handleVoteClick = useCallback((event, callbackValue) => {
-    setCheckedId(callbackValue.id);
-    onHandleVoteClick(callbackValue);
-  }, []);
+    setCheckedId(callbackValue.id)
+    onHandleVoteClick(callbackValue)
+  }, [])
 
   useEffect(() => {
-    setCheckedId(checkedChoiceId);
-  }, [checkedChoiceId]);
-  
-  return (
-    <QuestionDetailsInfiniteWrapper
-      id={id}
-      className={className}
-    >
-      {data?.length > 0 && data.map((item, index) => (
-        <QuestionDetailCard
-          key={item.choice + index}
-          id={item.choice + index}
-          questionId={id}
-          className="ques-card"
-          choice={item.choice}
-          url={item.url}
-          votes={item.votes}
-          onVoteClick={handleVoteClick}
-          checkedId={checkedId}
-        />
-      ))}
+    setCheckedId(checkedChoiceId)
+  }, [checkedChoiceId])
 
-      {dataLoading && Array.from(Array(placeholderItemsCount).keys()).map((index) => (
-        <Grid key={index}> loading </Grid>
-      ))}
+  return (
+    <QuestionDetailsInfiniteWrapper id={id} className={className}>
+      {data?.length > 0 &&
+        data.map((item, index) => (
+          <QuestionDetailCard
+            key={item.choice + index}
+            id={item.choice + index}
+            questionId={id}
+            className="ques-card"
+            choice={item.choice}
+            url={item.url}
+            votes={item.votes}
+            onVoteClick={handleVoteClick}
+            checkedId={checkedId}
+          />
+        ))}
+
+      {dataLoading &&
+        Array.from(Array(placeholderItemsCount).keys()).map((index) => (
+          <Grid key={index}> loading </Grid>
+        ))}
     </QuestionDetailsInfiniteWrapper>
   )
 }
 
-export default QuestionDetailsList;
+export default QuestionDetailsList

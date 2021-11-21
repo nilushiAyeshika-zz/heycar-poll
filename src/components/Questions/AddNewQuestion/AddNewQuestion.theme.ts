@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { appTheme  } from "../../../theme/Theme";
+import { appTheme } from '../../../theme/Theme'
 
 export const AddNewQuestionWrapper = styled.div`
-	display: flex;
-`;
+  display: flex;
+`

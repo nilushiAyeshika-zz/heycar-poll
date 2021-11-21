@@ -1,5 +1,5 @@
 export interface QuestionListProps<RowItem> {
-	className?: string;
+  className?: string
   placeholderCount?: number
   data: Array<RowItem>
   hasMoreData: boolean

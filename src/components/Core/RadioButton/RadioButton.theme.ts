@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { RadioButtonProps } from './RadioButton.types';
+import { RadioButtonProps } from './RadioButton.types'
 
 const LabelStyles = styled.label`
   display: block;
@@ -39,11 +39,11 @@ const LabelStyles = styled.label`
   }
 
   input:checked ~ .checkmark {
-    background-color: #2196F3;
+    background-color: #2196f3;
   }
 
   .checkmark:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
@@ -54,12 +54,12 @@ const LabelStyles = styled.label`
 
   .checkmark:after {
     top: 9px;
-   left: 9px;
-   width: 8px;
-   height: 8px;
-   border-radius: 50%;
-   background: white;
- }
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
 `
 
-export default LabelStyles;
+export default LabelStyles

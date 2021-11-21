@@ -1,21 +1,14 @@
-import React, { useEffect, useCallback, useState } from "react";
-import Modal from 'react-modal';
+import React, { useEffect, useCallback, useState } from 'react'
+import Modal from 'react-modal'
 
-import Grid from "../../Layout/Grid/Grid.component";
+import Grid from '../../Layout/Grid/Grid.component'
 
-import { AddNewQuestionProps } from './AddNewQuestion.types';
+import { AddNewQuestionProps } from './AddNewQuestion.types'
 
-import { AddNewQuestionWrapper } from './AddNewQuestion.theme';
+import { AddNewQuestionWrapper } from './AddNewQuestion.theme'
 
 const AddNewQuestion: React.FC<AddNewQuestionProps> = (props) => {
-  const {
-    className,
-    modalIsOpen,
-    afterOpenModal,
-    closeModal,
-    style,
-    children,
-  } = props;
+  const { className, modalIsOpen, afterOpenModal, closeModal, style, children } = props
   return (
     <Modal
       isOpen={modalIsOpen}
@@ -26,11 +19,9 @@ const AddNewQuestion: React.FC<AddNewQuestionProps> = (props) => {
       style={style}
       ariaHideApp={false}
     >
-      <AddNewQuestionWrapper>
-        {children}
-      </AddNewQuestionWrapper>
+      <AddNewQuestionWrapper>{children}</AddNewQuestionWrapper>
     </Modal>
   )
 }
 
-export default AddNewQuestion;
+export default AddNewQuestion

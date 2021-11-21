@@ -1,4 +1,4 @@
-import { IQuestion } from "../../components/Questions/Card/Card.types"; 
+import { IQuestion } from '../../components/Questions/Card/Card.types'
 
 export interface IQuestionDetailsDefaultState {
   loading: boolean

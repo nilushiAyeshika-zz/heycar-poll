@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { appTheme } from "../../theme/Theme";
+import { appTheme } from '../../theme/Theme'
 
 export const QuestionScreenWrapper = styled.div`
-	display: flex;
+  display: flex;
   justify-content: center;
   width: 100%;
 
@@ -11,14 +11,14 @@ export const QuestionScreenWrapper = styled.div`
     position: relative;
   }
 
-  @media(max-width: 920px) {
+  @media (max-width: 920px) {
     .questions-title {
       align-items: center;
       width: 24.5rem;
       padding: 0;
     }
   }
-`;
+`
 
 export const AddNewWrapper = styled.div`
   position: relative;
@@ -75,7 +75,7 @@ export const AddNewWrapper = styled.div`
   .info-message {
     font-style: italic;
   }
-`;
+`
 
 export const customModalStyles = {
   content: {
@@ -92,5 +92,5 @@ export const customModalStyles = {
   },
   overlay: {
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  }
-};
+  },
+}

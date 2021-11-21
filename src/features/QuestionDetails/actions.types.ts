@@ -1,10 +1,10 @@
-import { IQuestion } from "../../components/Questions/Card/Card.types";
+import { IQuestion } from '../../components/Questions/Card/Card.types'
 
-export const key = 'questionDetails';
+export const key = 'questionDetails'
 
-export const GET_QUESTION_DETAILS_LIST = 'GET_QUESTION_DETAILS_LIST';
-export const GET_QUESTION_DETAILS_SUCCESS = 'GET_QUESTION_DETAILS_SUCCESS';
-export const GET_QUESTION_DETAILS_ERROR = 'GET_QUESTION_DETAILS_ERROR';
+export const GET_QUESTION_DETAILS_LIST = 'GET_QUESTION_DETAILS_LIST'
+export const GET_QUESTION_DETAILS_SUCCESS = 'GET_QUESTION_DETAILS_SUCCESS'
+export const GET_QUESTION_DETAILS_ERROR = 'GET_QUESTION_DETAILS_ERROR'
 
 export interface IGetQuestionDetails {
   type: typeof GET_QUESTION_DETAILS_LIST

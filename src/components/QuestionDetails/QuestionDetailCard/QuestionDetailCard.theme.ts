@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const QuestionDetailCardWrapper = styled.div`
-	display: flex;
+  display: flex;
   flex-wrap: wrap;
   min-height: 6.5rem;
   align-items: center;
@@ -30,7 +30,6 @@ const QuestionDetailCardWrapper = styled.div`
     width: 20%;
     justify-content: center;
   }
+`
 
-`;
-
-export default QuestionDetailCardWrapper;
+export default QuestionDetailCardWrapper

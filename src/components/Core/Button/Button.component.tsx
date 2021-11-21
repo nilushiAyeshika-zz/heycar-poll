@@ -1,10 +1,10 @@
-import React, { forwardRef, useCallback } from "react";
+import React, { forwardRef, useCallback } from 'react'
 
-import Grid from "../../Layout/Grid/Grid.component";
+import Grid from '../../Layout/Grid/Grid.component'
 
-import { ButtonProps, ButtonTheme } from './Button.types';
+import { ButtonProps, ButtonTheme } from './Button.types'
 
-import ButtonStyles from './Button.theme';
+import ButtonStyles from './Button.theme'
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
@@ -27,12 +27,15 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     hoverColor,
     margin,
     type,
-  } = props;
+  } = props
 
-  const handleClick = useCallback((e) => {
-    const event = e;
-    onClick?.(callbackValue, event);
-  }, [onClick, callbackValue]);
+  const handleClick = useCallback(
+    (e) => {
+      const event = e
+      onClick?.(callbackValue, event)
+    },
+    [onClick, callbackValue]
+  )
 
   return (
     <ButtonStyles
@@ -55,23 +58,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       margin={margin}
       type={type}
     >
-      {
-        startIcon ? (
-          <Grid className="icon-wrapper">
-            {startIcon}
-            {children}
-          </Grid>
-        )
-        :
+      {startIcon ? (
+        <Grid className="icon-wrapper">
+          {startIcon}
+          {children}
+        </Grid>
+      ) : (
         children
-      }
+      )}
     </ButtonStyles>
-  );
-});
+  )
+})
 
 Button.defaultProps = {
   startIcon: undefined,
   type: 'button',
-};
+}
 
-export default Button;
+export default Button

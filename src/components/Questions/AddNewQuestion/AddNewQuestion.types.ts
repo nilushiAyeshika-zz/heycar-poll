@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 export interface AddNewQuestionProps {
-	className?: string
+  className?: string
   modalIsOpen: boolean
   afterOpenModal?: () => any
   closeModal: () => any
   children: React.ReactNode
-  style?: any,
+  style?: any
 }

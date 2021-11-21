@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const QuestionListWrapper = styled.div`
-	display: flex;
+  display: flex;
 
   overflow-y: auto;
   width: 100%;
@@ -14,7 +14,7 @@ const QuestionListWrapper = styled.div`
     width: 100%;
   }
 
-  .infinite-scroll-component  {
+  .infinite-scroll-component {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -34,7 +34,7 @@ const QuestionListWrapper = styled.div`
     flex-wrap: wrap;
   }
 
-  @media(max-width: 1300px) {
+  @media (max-width: 1300px) {
     .question-card {
       &:nth-child(3n) {
         margin-right: 1.5rem;
@@ -44,12 +44,12 @@ const QuestionListWrapper = styled.div`
       }
     }
 
-    .card-list-inner{
+    .card-list-inner {
       width: 81.2rem;
     }
   }
 
-  @media(max-width: 920px) {
+  @media (max-width: 920px) {
     .question-card {
       margin-right: 0;
       &:nth-child(3n) {
@@ -65,17 +65,17 @@ const QuestionListWrapper = styled.div`
     }
   }
 
-  @media(max-width: 460px) {
+  @media (max-width: 460px) {
     .question-inner-wrapper {
       width: 100%;
       padding: 0 2rem;
     }
 
-    .card-list-inner{
+    .card-list-inner {
       width: 100%;
       padding: 0 2rem;
     }
   }
-`;
+`
 
-export default QuestionListWrapper;
+export default QuestionListWrapper

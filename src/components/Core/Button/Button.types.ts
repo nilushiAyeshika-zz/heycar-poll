@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import { TextSizeType, ColorType } from "../../../utils/theme.utils";
+import { TextSizeType, ColorType } from '../../../utils/theme.utils'
 
 export interface ButtonProps {
   children?: React.ReactNode
@@ -11,16 +11,16 @@ export interface ButtonProps {
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
   fullWidth?: boolean
-	width?: string
-	maxWidth?: string
-	minWidth?: string
-	margin?: string
-	height?: string
-	padding?: string
-	backgroundColor?: ColorType
-	textColor?: ColorType
-	hoverColor?: ColorType
-	size?: TextSizeType
+  width?: string
+  maxWidth?: string
+  minWidth?: string
+  margin?: string
+  height?: string
+  padding?: string
+  backgroundColor?: ColorType
+  textColor?: ColorType
+  hoverColor?: ColorType
+  size?: TextSizeType
   type?: 'button' | 'reset' | 'submit'
 }
 

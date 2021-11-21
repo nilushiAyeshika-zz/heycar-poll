@@ -12,7 +12,7 @@ export interface IDetailsChoiceData {
 }
 
 export interface IDetailListChoices {
-	choice: string
-	url: string
-	votes: number
+  choice: string
+  url: string
+  votes: number
 }

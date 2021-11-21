@@ -8,6 +8,6 @@
 //   userLogoutLogic,
 // ];
 
-const rootLogic = [1];
+const rootLogic = [1]
 
-export default rootLogic;
+export default rootLogic

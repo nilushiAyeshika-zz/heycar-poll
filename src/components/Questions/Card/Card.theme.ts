@@ -1,17 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-import { CardProps } from './Card.types';
+import { CardProps } from './Card.types'
 
-import { appTheme  } from "../../../theme/Theme";
+import { appTheme } from '../../../theme/Theme'
 
 export const CardStyles = styled.div<CardProps>`
-	display: flex;
+  display: flex;
   width: 39.6rem;
   flex-direction: column;
   height: 22.4rem;
   box-shadow: 0px 2px 6px 1px rgba(0, 22, 99, 0.12);
   border-radius: 2rem;
-  transition: transform .2s;
+  transition: transform 0.2s;
 
   .card-icon-title {
     background-color: ${appTheme.colors.DEFAULT_CARD_BG};
@@ -28,17 +28,16 @@ export const CardStyles = styled.div<CardProps>`
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
+
   &:hover {
     cursor: pointer;
     transform: scale(1.03);
   }
 
-  @media(max-width: 460px) {
+  @media (max-width: 460px) {
     width: 100%;
   }
-  
-`;
+`
 
 export const CardBody = styled.div`
   display: flex;
@@ -47,8 +46,8 @@ export const CardBody = styled.div`
   div:nth-child(1) {
     margin-bottom: 2rem;
   }
-`;
+`
 
 export const OptionWrapper = styled.div`
   display: flex;
-`;
+`
