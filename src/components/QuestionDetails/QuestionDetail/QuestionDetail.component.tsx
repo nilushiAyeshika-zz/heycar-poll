@@ -59,10 +59,12 @@ const QuestionDetail: React.FC<IDetails> = (props) => {
               isLightIcon={isLightColor(iconBgColor)}
               data-test="question-icon"
             >
-              <Text size="l" weight="bold" >
-                Question:
-              </Text>
-              <Text size="l" data-test="question-title">&nbsp; {data?.question}</Text>
+              <Grid className="question-wrapper">
+                <Text size="l" weight="bold" >
+                  Question: &nbsp; 
+                </Text>
+                <Text size="l" data-test="question-title">{data?.question}</Text>
+              </Grid>
             </IconTitle>
           </Grid>
           <QuestionChoicesList

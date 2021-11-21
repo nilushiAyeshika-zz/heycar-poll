@@ -38,7 +38,11 @@ const QuestionDetailsWrapper = styled.div`
     align-self: flex-end;
   }
 
-  @media (max-width: 1300px) {
+  @media (max-width: 914px) {
+    .question-wrapper {
+      flex-direction: column;
+      padding-left: 2rem;
+    }
   }
 `
 
