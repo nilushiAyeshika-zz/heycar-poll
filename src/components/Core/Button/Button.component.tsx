@@ -57,9 +57,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       hoverColor={hoverColor}
       margin={margin}
       type={type}
+      data-test="button-component"
     >
       {startIcon ? (
-        <Grid className="icon-wrapper">
+        <Grid className="icon-wrapper" data-test="button-start-icon">
           {startIcon}
           {children}
         </Grid>

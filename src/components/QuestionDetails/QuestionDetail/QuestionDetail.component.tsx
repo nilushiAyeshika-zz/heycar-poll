@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import Grid from '../../../components/Layout/Grid/Grid.component'
 import Text from '../../Core/Text/Text.component'
 import IconTitle from '../../Shared/IconTitle/IconTitle.component'
-import QuestionDetailsList from '../QuestionDetailsList/QuestionDetailsList.component'
+import QuestionChoicesList from '../QuestionChoicesList/QuestionChoicesList.component'
 import Button from '../../Core/Button/Button.component'
 import { generateRandomColors, isLightColor } from '../../../utils/theme.utils'
 import QuestionAPIService from '../../../services/Questions'
@@ -50,26 +50,28 @@ const QuestionDetail: React.FC<IDetails> = (props) => {
   return (
     <Grid direction="column">
       <QuestionDetailsWrapper>
-        <Grid className="vote-body-wrapper">
+        <Grid className="vote-body-wrapper" data-test="question-detail-wrapper">
           <Grid>
             <IconTitle
               icon={<FontAwesomeIcon icon={faQuestion} />}
               className="card-icon-title"
               backgroundColor={iconBgColor}
               isLightIcon={isLightColor(iconBgColor)}
+              data-test="question-icon"
             >
-              <Text size="l" weight="bold">
+              <Text size="l" weight="bold" >
                 Question:
               </Text>
-              <Text size="l">&nbsp; {data?.question}</Text>
+              <Text size="l" data-test="question-title">&nbsp; {data?.question}</Text>
             </IconTitle>
           </Grid>
-          <QuestionDetailsList
+          <QuestionChoicesList
             id={id}
             data={data?.choices}
             dataLoading={loading}
             onHandleVoteClick={handleVoteClick}
             checkedChoiceId={selectedChoice?.id}
+            data-test="question-choices-component"
           />
         </Grid>
         <Button
@@ -78,6 +80,7 @@ const QuestionDetail: React.FC<IDetails> = (props) => {
           margin="4rem 0"
           className="vote-button"
           disabled={buttonDisabled || selectedChoice === null}
+          data-test="question-vote-button"
         >
           <Text size="m" color="typo-white">
             Save Votes

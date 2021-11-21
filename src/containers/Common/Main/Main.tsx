@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { ToastContainer } from 'react-toastify'
+import { Offline } from 'react-detect-offline'
 
 import Grid from '../../../components/Layout/Grid/Grid.component'
 import RouteConfig from '../../../routeConfig/RouteConfig'
@@ -8,7 +9,10 @@ import 'react-toastify/dist/ReactToastify.css'
 
 const Main: FC = () => {
   return (
-    <Grid>
+    <Grid data-test="main-container">
+      <Offline data-test="offline-banner-container">
+        You're offline right now. Check your connection.
+      </Offline>
       <RouteConfig data-test="route-config-component" />
       <ToastContainer data-test="toast-component" />
     </Grid>

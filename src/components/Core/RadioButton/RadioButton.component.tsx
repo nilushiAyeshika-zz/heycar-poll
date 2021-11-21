@@ -26,6 +26,7 @@ const RadioButton = forwardRef<HTMLLabelElement, RadioButtonProps>((props, ref) 
         onChange={handleChange}
         checked={checked}
         disabled={disabled}
+        data-test="radio-button"
       />
       <span className={classnames('checkmark', { ['checkmark-diabled']: disabled })}></span>
     </LabelStyles>

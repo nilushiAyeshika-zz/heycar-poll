@@ -1,17 +1,18 @@
 import React, { useCallback, useEffect, useState } from 'react'
 
-import Grid from '../../../components/Layout/Grid/Grid.component'
-import QuestionDetailCard from '../QuestionDetailCard/QuestionDetailCard.component'
+import Grid from '../../Layout/Grid/Grid.component'
+import QuestionChoiceCard from '../QuestionChoiceCard/QuestionChoiceCard.component'
 import QuestionListContentLoader from '../QuestionListContentLoader/QuestionListContentLoader.component'
 import Text from '../../Core/Text/Text.component'
+import { getPrecentage } from '../../../utils/common.utils'
 
-import { IDetailListProps } from './QuestionDetailsList.types'
+import { IDetailListProps } from './QuestionChoicesList.types'
 
-import QuestionDetailsInfiniteWrapper from './QuestionDetailsList.theme'
+import QuestionChoiceListWrapper from './QuestionChoicesList.theme'
 
 const DefaultPlaceholderItemsCount = 3
 
-const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
+const QuestionChoicesList: React.FC<IDetailListProps> = (props) => {
   const { id, className, placeholderCount, data, dataLoading, onHandleVoteClick, checkedChoiceId } =
     props
 
@@ -31,11 +32,16 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
     setCheckedId(checkedChoiceId)
   }, [checkedChoiceId])
 
-  return (
-    <QuestionDetailsInfiniteWrapper id={id} className={className}>
+  const renderDataLoading = () =>
+    Array.from(Array(placeholderItemsCount).keys()).map((index) => (
+      <QuestionListContentLoader key={index} />
+    ))
+
+  const renderChoiceList = () => (
+    <>
       {data?.length > 0 ? (
         data.map((item, index) => (
-          <QuestionDetailCard
+          <QuestionChoiceCard
             key={item.choice + index}
             id={item.choice + index}
             questionId={id}
@@ -45,20 +51,23 @@ const QuestionDetailsList: React.FC<IDetailListProps> = (props) => {
             votes={item.votes}
             onVoteClick={handleVoteClick}
             checkedId={checkedId}
+            precentage={getPrecentage(item.votes, data)}
+            data-test="question-choices-item"
           />
         ))
       ) : (
-        <Grid padding="3rem">
+        <Grid padding="3rem" data-test="question-choices-no-data-message">
           <Text size="l">No choices to display</Text>
         </Grid>
       )}
+    </>
+  )
 
-      {dataLoading &&
-        Array.from(Array(placeholderItemsCount).keys()).map((index) => (
-          <QuestionListContentLoader key={index} />
-        ))}
-    </QuestionDetailsInfiniteWrapper>
+  return (
+    <QuestionChoiceListWrapper id={id} className={className} data-test="question-choices-list-wrapper">
+      {dataLoading ? renderDataLoading() : renderChoiceList()}
+    </QuestionChoiceListWrapper>
   )
 }
 
-export default QuestionDetailsList
+export default QuestionChoicesList

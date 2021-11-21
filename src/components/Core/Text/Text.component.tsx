@@ -43,6 +43,7 @@ const Text: React.FC<TextProps> = (props) => {
       callbackValue={callbackValue}
       onClick={handleClick}
       cursor={cursor}
+      data-test="text-component"
     >
       {children}
     </TextStyles>

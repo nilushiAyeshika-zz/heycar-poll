@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const QuestionDetailCardWrapper = styled.div`
+const QuestionChoiceCardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   min-height: 6.5rem;
@@ -32,4 +32,4 @@ const QuestionDetailCardWrapper = styled.div`
   }
 `
 
-export default QuestionDetailCardWrapper
+export default QuestionChoiceCardWrapper

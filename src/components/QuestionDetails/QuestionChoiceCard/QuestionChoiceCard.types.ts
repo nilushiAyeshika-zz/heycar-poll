@@ -8,4 +8,5 @@ export interface IDetailCard {
   onVoteClick?: (event: React.ChangeEvent<HTMLInputElement>, callbackValue: any) => any
   checkedId: string | undefined
   disabled?: boolean
+  precentage: string
 }

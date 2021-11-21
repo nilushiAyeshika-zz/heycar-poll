@@ -29,14 +29,21 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
     navigate(`question/${questionId}`)
   }, [])
 
+  const renderLoadingView = () => {
+    return Array.from(Array(placeholderItemsCount).keys()).map((index) => (
+      <CardContentLoader key={index} />
+    ))
+  }
+
   const renderInfiniteScrollView = () => (
     <InfiniteScroll
       dataLength={data.length}
       next={handleNextPageRequest}
       hasMore={hasMoreData}
-      loader={<h4>Loading...</h4>}
+      loader={renderLoadingView()}
       refreshFunction={() => null}
       pullDownToRefreshThreshold={50}
+      data-test="question-list-infiniter"
     >
       {data.length > 0 ? (
         data.map((item) => {
@@ -52,11 +59,12 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
               className="question-card"
               onClick={handleQuestionItemClick}
               callbackValue={item.url}
+              data-test="question-list-item"
             />
           )
         })
       ) : (
-        <Grid direction="column" margin="3rem 0 0 0">
+        <Grid direction="column" margin="3rem 0 0 0" data-test="question-list-no-data-message">
           <Text size="l">Sorry, no data to show</Text>
           <Text size="l">Please start with creating new question</Text>
         </Grid>
@@ -64,14 +72,8 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
     </InfiniteScroll>
   )
 
-  const renderLoadingView = () => {
-    return Array.from(Array(placeholderItemsCount).keys()).map((index) => (
-      <CardContentLoader key={index} />
-    ))
-  }
-
   return (
-    <QuestionListWrapper className={className}>
+    <QuestionListWrapper className={className} data-test="question-list-wrapper">
       <Grid className="card-list-inner">
         {dataLoading ? renderLoadingView() : renderInfiniteScrollView()}
       </Grid>

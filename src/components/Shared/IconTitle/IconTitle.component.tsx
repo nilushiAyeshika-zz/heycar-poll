@@ -15,8 +15,9 @@ const IconTitle: React.FC<IconTitleProps> = (props) => {
       margin={margin}
       padding={padding}
       isLightIcon={isLightIcon}
+      data-test="icon-title-component"
     >
-      <IconWrapperStyles>{icon}</IconWrapperStyles>
+      <IconWrapperStyles data-test="icon">{icon}</IconWrapperStyles>
       {children}
     </IconTitleStyles>
   )

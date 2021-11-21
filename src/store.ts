@@ -10,6 +10,4 @@ const middlewares = applyMiddleware(routeMiddleware, thunk)
 
 const Store = createStore(RootReducer(), composeWithDevTools(middlewares))
 
-// export type RootStore = ReturnType<typeof RootReducer>
-
 export default Store

@@ -37,6 +37,7 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
     <QuestionDetailsScreenWrapper>
       <Grid
         className="question-inner-wrapper"
+        data-test="question-inner-wrapper"
         alignItems="center"
         width="122.2rem"
         margin="4rem 0"
@@ -48,6 +49,7 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
             icon={<FontAwesomeIcon icon={faList} />}
             backgroundColor="rgb(234, 93, 136)"
             className="questions-title"
+            data-test="question-title"
           >
             <Text size="xl">Questions Detail</Text>
           </IconTitle>
@@ -56,6 +58,7 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
             width="10rem"
             margin="4rem 0"
             className="vote-button"
+            data-test="question-back-button"
             startIcon={<FontAwesomeIcon icon={faArrowLeft} />}
           >
             <Text size="m" color="typo-white">
@@ -63,7 +66,12 @@ const QuestionDetailsScreen: React.FC = (props: any) => {
             </Text>
           </Button>
         </Grid>
-        <QuestionDetail id={qid || 0} data={questionDetailsList} loading={isListLoading} />
+        <QuestionDetail
+          id={qid || 0}
+          data={questionDetailsList}
+          loading={isListLoading}
+          data-test="question-detail-component"
+        />
       </Grid>
     </QuestionDetailsScreenWrapper>
   )

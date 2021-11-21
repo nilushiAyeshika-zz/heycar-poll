@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { appTheme } from '../../../theme/Theme'
 
-const QuestionDetailsWrapper = styled.div`
+const QuestionChoiceListWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,4 +15,4 @@ const QuestionDetailsWrapper = styled.div`
     }
 `
 
-export default QuestionDetailsWrapper
+export default QuestionChoiceListWrapper
