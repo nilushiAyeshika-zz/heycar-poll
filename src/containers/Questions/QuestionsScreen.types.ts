@@ -1,5 +1,5 @@
-export interface IQuestionScreen {
-  questionList?: []
-  isListLoading?: boolean
-  nextPageLink?: string
+export interface IQuestionScreenProps {
+  questionList: []
+  isListLoading: boolean
+  nextPageLink: string
 }

@@ -14,7 +14,15 @@ import QuestionListWrapper from './QuestionList.theme'
 const DefaultPlaceholderItemsCount = 6
 
 const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
-  const { className, placeholderCount, data, dataLoading, hasMoreData, onNextPageRequested } = props
+  const {
+    className,
+    placeholderCount,
+    data,
+    dataLoading,
+    hasMoreData,
+    pageCount,
+    onNextPageRequested,
+  } = props
 
   const navigate = useNavigate()
   const placeholderItemsCount = placeholderCount || DefaultPlaceholderItemsCount
@@ -74,7 +82,7 @@ const QuestionList: React.FC<QuestionListProps<any>> = (props) => {
   return (
     <QuestionListWrapper className={className} data-test="question-list-wrapper">
       <Grid className="card-list-inner">
-        {dataLoading ? renderLoadingView() : renderInfiniteScrollView()}
+        {dataLoading && pageCount === 1 ? renderLoadingView() : renderInfiniteScrollView()}
       </Grid>
     </QuestionListWrapper>
   )

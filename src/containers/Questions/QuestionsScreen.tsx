@@ -15,8 +15,9 @@ import AddNewQuestion from '../../components/Questions/AddNewQuestion/AddNewQues
 import Modal from '../../components/Shared/Modal/Modal.component'
 
 import { QuestionScreenWrapper, customModalStyles, AddNewWrapper } from './QuestionsScreen.theme'
+import { IQuestionScreenProps } from './QuestionsScreen.types'
 
-const QuestionScreen: React.FC = (props: any) => {
+const QuestionScreen: React.FC<IQuestionScreenProps> = (props) => {
   const { questionList, isListLoading, nextPageLink } = props
 
   const dispatch = useDispatch()
@@ -30,7 +31,7 @@ const QuestionScreen: React.FC = (props: any) => {
       setPageCount(pageCount + 1)
       dispatch(getQuestionList(pageCount + 1))
     }
-  }, [questionList])
+  }, [pageCount, isListLoading])
 
   const handleOpenAddNewModal = useCallback(() => {
     setIsAddNewOpen(true)
@@ -88,6 +89,7 @@ const QuestionScreen: React.FC = (props: any) => {
           onNextPageRequested={handleNextPageRequest}
           hasMoreData={moreDataAvailable}
           data-test="questions-component"
+          pageCount={pageCount}
         />
       </Grid>
       {isAddNewOpen && (

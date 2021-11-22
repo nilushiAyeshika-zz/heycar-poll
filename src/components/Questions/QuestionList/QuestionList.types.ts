@@ -3,6 +3,7 @@ export interface QuestionListProps<RowItem> {
   placeholderCount?: number
   data: Array<RowItem>
   hasMoreData: boolean
+  pageCount: number
   dataLoading?: boolean
   bottomHitThreshold?: number
   onNextPageRequested: () => any

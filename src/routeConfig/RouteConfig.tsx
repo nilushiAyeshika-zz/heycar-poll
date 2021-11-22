@@ -8,7 +8,10 @@ import RouteHelper from '../helpers/RouteHelper'
 const RouteConfig = () => {
   return (
     <Routes>
-      <Route path="/" element={<QuestionScreen />} />
+      <Route
+        path="/"
+        element={<QuestionScreen questionList={[]} isListLoading={false} nextPageLink="" />}
+      />
       <Route
         path={`${RouteHelper.QUESTION_DETAILS_PATH}/:questionId`}
         element={<QuestionDetailsScreen />}
